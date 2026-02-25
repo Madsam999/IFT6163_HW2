@@ -1,0 +1,62 @@
+[info] Using model type: simple
+False  dreamerV3.py
+False
+False  dreamerV3.py
+Epoch [1/50], Batch [1/15], Loss: 1.5070, policy_loss: 0.0000
+Epoch [1/50], Batch [2/15], Loss: 1.2981, policy_loss: 0.0000
+Epoch [1/50], Batch [3/15], Loss: 1.1369, policy_loss: 0.0000
+Epoch [1/50], Batch [4/15], Loss: 0.9708, policy_loss: 0.0000
+Epoch [1/50], Batch [5/15], Loss: 0.7902, policy_loss: 0.0000
+Epoch [1/50], Batch [6/15], Loss: 0.6588, policy_loss: 0.0000
+Epoch [1/50], Batch [7/15], Loss: 0.5178, policy_loss: 0.0000
+Epoch [1/50], Batch [8/15], Loss: 0.3743, policy_loss: 0.0000
+Epoch [1/50], Batch [9/15], Loss: 0.2776, policy_loss: 0.0000
+Epoch [1/50], Batch [10/15], Loss: 0.1812, policy_loss: 0.0000
+Epoch [1/50], Batch [11/15], Loss: 0.0951, policy_loss: 0.0000
+Epoch [1/50], Batch [12/15], Loss: 0.0648, policy_loss: 0.0000
+Epoch [1/50], Batch [13/15], Loss: 0.0455, policy_loss: 0.0000
+Epoch [1/50], Batch [14/15], Loss: 0.0463, policy_loss: 0.0000
+Epoch [1/50], Batch [15/15], Loss: 0.0723, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+/workspace/IFT6163_HW2/hw2/sim_eval.py:288: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:278.)
+  pose_ = model.encode_pose(torch.tensor([[np.concatenate(
+/workspace/IFT6163_HW2/hw2/sim_eval.py:301: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  text_goal=torch.tensor(txt_goal).to(device),
+Using first observation as goal image
+/workspace/IFT6163_HW2/hw2/sim_eval.py:301: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  text_goal=torch.tensor(txt_goal).to(device),
+[info] retrieving task 1 from suite libero_spatial, the language instruction is pick up the black bowl next to the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+avg reward 0.62419530
+Learning rate after epoch 1: 0.000980
+Epoch [2/50], Batch [1/15], Loss: 0.1109, policy_loss: 0.0000
+Epoch [2/50], Batch [2/15], Loss: 0.1301, policy_loss: 0.0000
+Epoch [2/50], Batch [3/15], Loss: 0.1423, policy_loss: 0.0000
+Traceback (most recent call last):
+  File "/workspace/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 452, in <module>
+    my_main()
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/hydra/main.py", line 90, in decorated_main
+    _run_hydra(
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/hydra/_internal/utils.py", line 389, in _run_hydra
+    _run_app(
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/hydra/_internal/utils.py", line 452, in _run_app
+    run_and_report(
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/hydra/_internal/utils.py", line 213, in run_and_report
+    return func()
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/hydra/_internal/utils.py", line 453, in <lambda>
+    lambda: hydra.run(
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/workspace/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 367, in my_main
+    img, act, rew, don, pos = dataset[idx]
+  File "/workspace/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 252, in __getitem__
+    images = torch.from_numpy(np.array(sample['img'])).float()
+KeyboardInterrupt

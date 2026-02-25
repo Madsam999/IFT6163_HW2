@@ -453,7 +453,7 @@ class PolicyPlanner(GRPBase):
         return {
             "actions": actions_out,
             "predicted_rewards": expected_reward,
-            "final_state"
+            "final_state": current_state
         }
         pass
 

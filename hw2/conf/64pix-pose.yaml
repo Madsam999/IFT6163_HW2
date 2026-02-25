@@ -43,7 +43,7 @@ experiment:
 model: 
   type: "dense"         # Changed to dense for SimpleWorldModel (MLP)
 
-batch_size: 256
+batch_size: 64
 learning_rate: 3e-4
 device: "cuda"
 
@@ -51,6 +51,7 @@ device: "cuda"
 sim:
   eval_episodes: 1
   episode_length: 100
+  eval_tasks: [0, 1]
   task_set: "libero_spatial"
 
 image_shape: [64, 64, 3]

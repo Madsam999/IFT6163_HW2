@@ -1,0 +1,9 @@
+- model_type=simple
+- planner.type=cem
+- planner.horizon=10
+- planner.num_samples=100
+- planner.num_elites=10
+- max_iters=50
+- experiment.name=q1_simple_cem
+- +sim.eval_tasks=[0,1]
+- +max_block_size=16
