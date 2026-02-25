@@ -17,16 +17,32 @@ class GRPBase(nn.Module):
     def __init__(self, cfg):
         super(GRPBase, self).__init__()
         self._cfg = cfg
+        print(self._cfg.dataset.encode_with_t5, " dreamerV3.py")
 
     def encode_text_goal(self, goal, tokenizer=None, text_model=None):
         import numpy as _np
         import torch as _torch
+        
         if self._cfg.dataset.encode_with_t5:
             if tokenizer is None or text_model is None:
                 raise ValueError("tokenizer and text_model must be provided when using T5 encoding")
             # TODO:    
             ## Provide the logic converting text goal to T5 embedding tensor
-            pass
+            tokens = tokenizer(
+                goal, 
+                return_tensors="pt",
+                padding="max_length",
+                truncation=True,
+                max_length=self._cfg.max_block_size
+            ).to(self._cfg.device)
+
+            # 2. Forward pass through the T5 encoder only
+            with _torch.no_available_gradients() if not _torch.is_grad_enabled() else _torch.enable_grad():
+                outputs = text_model.get_encoder()(**tokens)
+                # last_hidden_state shape: (1, max_block_size, n_embd)
+                embeddings = outputs.last_hidden_state
+            
+            return embeddings
         else:
             pad = " " * self._cfg.max_block_size
             goal_ = goal[:self._cfg.max_block_size] + pad[len(goal):self._cfg.max_block_size]

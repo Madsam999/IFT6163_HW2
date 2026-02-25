@@ -1,0 +1,35 @@
+[info] Using model type: simple
+False  dreamerV3.py
+False
+False  dreamerV3.py
+Epoch [1/100], Batch [1/15], Loss: 1.6422, policy_loss: 0.0000
+Epoch [1/100], Batch [2/15], Loss: 1.4096, policy_loss: 0.0000
+Epoch [1/100], Batch [3/15], Loss: 1.2021, policy_loss: 0.0000
+Epoch [1/100], Batch [4/15], Loss: 0.9845, policy_loss: 0.0000
+Epoch [1/100], Batch [5/15], Loss: 0.8092, policy_loss: 0.0000
+Epoch [1/100], Batch [6/15], Loss: 0.6297, policy_loss: 0.0000
+Epoch [1/100], Batch [7/15], Loss: 0.4772, policy_loss: 0.0000
+Epoch [1/100], Batch [8/15], Loss: 0.3354, policy_loss: 0.0000
+Epoch [1/100], Batch [9/15], Loss: 0.2175, policy_loss: 0.0000
+Epoch [1/100], Batch [10/15], Loss: 0.1473, policy_loss: 0.0000
+Epoch [1/100], Batch [11/15], Loss: 0.0791, policy_loss: 0.0000
+Epoch [1/100], Batch [12/15], Loss: 0.0699, policy_loss: 0.0000
+Epoch [1/100], Batch [13/15], Loss: 0.0659, policy_loss: 0.0000
+Epoch [1/100], Batch [14/15], Loss: 0.0808, policy_loss: 0.0000
+Epoch [1/100], Batch [15/15], Loss: 0.0922, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:288: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:278.)
+  pose_ = model.encode_pose(torch.tensor([[np.concatenate(
+Error executing job with overrides: ['model_type=simple', '++testing=false', '++max_iters=100', '++eval_vid_iters=10', '++sim.eval_tasks=[0]', '++max_block_size=100']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 414, in my_main
+    data = eval_libero(planner, device, cfg, iter_=epoch, log_dir="./",
+  File "/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py", line 300, in eval_libero
+    observations=torch.tensor(np.array([[obs_state]], dtype=torch.float32)).to(device),
+TypeError: Cannot interpret 'torch.float32' as a data type
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

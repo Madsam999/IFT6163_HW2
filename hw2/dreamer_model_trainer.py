@@ -17,7 +17,6 @@ import random
 from sim_eval import eval_libero
 from collections import deque
 
-
 # Factory function to instantiate the correct model
 def create_model(model_type, img_shape, action_dim, device, cfg):
     """
@@ -96,7 +95,29 @@ class ModelTrainingWrapper:
         elif self.model_type == 'simple':
             # TODO: Part 1.2 - Implement SimpleWorldModel training loss
             ## Compute MSE loss between predicted and target poses/rewards
-            pass
+            next_pose_pred, reward_pred = output 
+
+            # Targets (t+1 to end)
+            target_poses = poses[:, 1:]
+            target_rewards = rewards[:, 1:] 
+
+            # Predictions (start to t-1)
+            preds_pose = next_pose_pred[:, :-1]
+            preds_rewards = reward_pred[:, :-1]
+            
+            # --- THE FIX: Flatten both to ensure they match ---
+            # This turns [32, 15, 1] or [32, 15] into just [480]
+            pose_loss = torch.mean((preds_pose - target_poses) ** 2)
+            reward_loss = torch.mean((preds_rewards.reshape(-1) - target_rewards.reshape(-1)) ** 2)
+
+            total_loss = pose_loss + reward_loss
+
+            return {
+                "loss": total_loss,
+                "pose_loss": pose_loss.item(),
+                "reward_loss": reward_loss.item()
+            }
+            
 
 
 class LIBERODataset(torch.utils.data.Dataset):
@@ -338,7 +359,67 @@ def my_main(cfg: DictConfig):
             batch_indices = num_idx[batch_start:batch_end]
             # Collect sequences for the batch
             # [TODO]
-            # TODO:    
+            # TODO:
+            batch_imgs, batch_acts, batch_rews, batch_dons, batch_poses = [], [], [], [], []
+            seq_len = cfg.policy.sequence_length # This is 16
+
+            for idx in batch_indices:
+                img, act, rew, don, pos = dataset[idx]
+                
+                # Find a random starting point for the 16-step window
+                # If trajectory is T, max start is T - 16
+                t_max = img.shape[0]
+                start = np.random.randint(0, t_max - seq_len + 1)
+                end = start + seq_len
+
+                # Slice exactly 16 steps
+                batch_imgs.append(img[start:end])
+                batch_acts.append(act[start:end])
+                batch_rews.append(rew[start:end])
+                batch_dons.append(don[start:end])
+                batch_poses.append(pos[start:end])
+
+            # 2. Now stack will work because everything is [16, ...]
+            images = torch.stack(batch_imgs).to(device).float()
+            
+            # LIBERO/Dreamer usually expects (Batch, Time, Channel, Height, Width)
+            # If your images are (B, T, H, W, C), swap them here:
+            if images.shape[-1] == 3:
+                images = images.permute(0, 1, 4, 2, 3)
+
+            actions = torch.stack(batch_acts).to(device).float()
+            rewards = torch.stack(batch_rews).to(device).float()
+            dones = torch.stack(batch_dons).to(device).float()
+            poses = torch.stack(batch_poses).to(device).float()
+
+            # 3. Training Step
+            optimizer.zero_grad()
+            output = model_wrapper.forward_pass(images, poses, actions)
+            loss_dict = model_wrapper.compute_loss(output, images, rewards, dones, poses, actions)
+            
+            # This defines the 'batch_loss' variable your print statement is looking for
+            batch_loss = loss_dict['loss'] 
+            
+            batch_loss.backward()
+            optimizer.step()
+            batch_counter += 1
+
+            if wandb is not None:
+                # Create a clean dict of sub-losses
+                metrics = {
+                    "train/loss": batch_loss.item() if torch.is_tensor(batch_loss) else batch_loss,
+                    "train/lr": scheduler.get_last_lr()[0],
+                    "epoch": epoch + 1
+                }
+    
+                # Add other items from loss_dict safely
+                for k, v in loss_dict.items():
+                    if k != 'loss':
+                        # Check if it has the .item() method, otherwise just use the value
+                        metrics[f"train/{k}"] = v.item() if hasattr(v, 'item') else v
+            
+                wandb.log(metrics)
+
             ## Implement data loading and training step for the batch
             print(f'Epoch [{epoch+1}/{cfg.max_iters }], Batch [{batch_counter}/{(len(dataset) + batch_size - 1) // batch_size}], Loss: {batch_loss.item():.4f}, policy_loss: {policy_loss:.4f}')
 

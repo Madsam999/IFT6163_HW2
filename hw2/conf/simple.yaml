@@ -12,7 +12,7 @@ experiment:
 # Model configuration for SimpleWorldModel
 model: 
   type: "simple"
-  hidden_dim: 256
+  hidden_dim: 64
 
 batch_size: 256
 max_block_size: 16

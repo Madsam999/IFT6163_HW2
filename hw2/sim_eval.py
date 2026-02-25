@@ -297,9 +297,9 @@ def eval_libero(model, device, cfg, iter_=0, log_dir="./",
                     last_action_tensor = model.encode_action(torch.tensor([[last_action[:cfg.action_dim]]], dtype=torch.float32)).to(device)
                 
                 out = model.forward(
-                    observations=torch.tensor(np.array([[obs_state]])).to(device),
+                    observations=torch.tensor(np.array([[obs_state]], dtype=np.float32)).to(device),
                     text_goal=torch.tensor(txt_goal).to(device),
-                    goal_image=torch.tensor(np.array([goal_state])).to(device), 
+                    goal_image=torch.tensor(np.array([goal_state], dtype=np.float32)).to(device), 
                     mask_=True,
                     pose=pose_,
                     prev_actions=last_action_tensor,

@@ -1,0 +1,10 @@
+
+[info] Using model type: simple
+Error executing job with overrides: ['++sim.eval_tasks=[0]']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 292, in my_main
+    if cfg.use_policy:
+omegaconf.errors.ConfigAttributeError: Key 'use_policy' is not in struct
+    full_key: use_policy
+    object_type=dict
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

@@ -1,0 +1,38 @@
+[info] Using model type: simple
+False  dreamerV3.py
+False
+False  dreamerV3.py
+Epoch [1/100], Batch [1/15], Loss: 1.5739, policy_loss: 0.0000
+Epoch [1/100], Batch [2/15], Loss: 1.2468, policy_loss: 0.0000
+Epoch [1/100], Batch [3/15], Loss: 0.9895, policy_loss: 0.0000
+Epoch [1/100], Batch [4/15], Loss: 0.8091, policy_loss: 0.0000
+Epoch [1/100], Batch [5/15], Loss: 0.6185, policy_loss: 0.0000
+Epoch [1/100], Batch [6/15], Loss: 0.4407, policy_loss: 0.0000
+Epoch [1/100], Batch [7/15], Loss: 0.2733, policy_loss: 0.0000
+Epoch [1/100], Batch [8/15], Loss: 0.1779, policy_loss: 0.0000
+Epoch [1/100], Batch [9/15], Loss: 0.0919, policy_loss: 0.0000
+Epoch [1/100], Batch [10/15], Loss: 0.0507, policy_loss: 0.0000
+Epoch [1/100], Batch [11/15], Loss: 0.0474, policy_loss: 0.0000
+Epoch [1/100], Batch [12/15], Loss: 0.0467, policy_loss: 0.0000
+Epoch [1/100], Batch [13/15], Loss: 0.1022, policy_loss: 0.0000
+Epoch [1/100], Batch [14/15], Loss: 0.1412, policy_loss: 0.0000
+Epoch [1/100], Batch [15/15], Loss: 0.1564, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Error executing job with overrides: ['++sim.eval_tasks=[0]']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 414, in my_main
+    data = eval_libero(planner, device, cfg, iter_=epoch, log_dir="./",
+  File "/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py", line 258, in eval_libero
+    txt_goal = get_text_tokens(cfg, tokenizer, text_model, instruction, model=model)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py", line 13, in get_text_tokens
+    return model.encode_text_goal(goal, tokenizer=tokenizer, text_model=text_model)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamerV3.py", line 47, in encode_text_goal
+    pad = " " * self._cfg.max_block_size
+omegaconf.errors.ConfigAttributeError: Key 'max_block_size' is not in struct
+    full_key: max_block_size
+    object_type=dict
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

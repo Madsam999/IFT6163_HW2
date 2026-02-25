@@ -1,0 +1,12 @@
+[info] Using model type: simple
+False  dreamerV3.py
+False
+False  dreamerV3.py
+Error executing job with overrides: ['model_type=simple', '++testing=false', '++max_iters=100', '++eval_vid_iters=10', '++sim.eval_tasks=[0]', '++max_block_size=100']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 413, in my_main
+    **{f"train/{k}": v.item() for k, v in loss_dict.items() if k != 'loss'}
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 413, in <dictcomp>
+    **{f"train/{k}": v.item() for k, v in loss_dict.items() if k != 'loss'}
+AttributeError: 'float' object has no attribute 'item'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

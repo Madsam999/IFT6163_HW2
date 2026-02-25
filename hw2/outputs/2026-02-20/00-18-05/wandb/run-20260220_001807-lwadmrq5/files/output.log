@@ -1,0 +1,14 @@
+
+[info] Using model type: simple
+Error executing job with overrides: ['++sim.eval_tasks=[0]']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 286, in my_main
+    model = create_model(model_type, img_shape, action_dim=7, device=device, cfg=cfg)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 38, in create_model
+    model = SimpleWorldModel(action_dim=action_dim, pose_dim=7, hidden_dim=256, cfg=cfg).to(device)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/simple_world_model.py", line 25, in __init__
+    self.device = cfg.device
+omegaconf.errors.ConfigAttributeError: Key 'device' is not in struct
+    full_key: device
+    object_type=dict
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

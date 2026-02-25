@@ -18,9 +18,23 @@ class SimpleWorldModel(GRPBase):
                  pose_dim=7,
                  hidden_dim=256,
                  cfg=None):
-        # TODO: Part 1.1 - Initialize SimpleWorldModel architecture
+        # TODONE?: Part 1.1 - Initialize SimpleWorldModel architecture
         ## Define the feature network and output heads (pose and reward)
-        pass
+        super().__init__(cfg)
+        self._cfg == cfg
+        print(self._cfg.dataset.encode_with_t5)
+        input_dim = pose_dim + action_dim
+
+        self.feature_net = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU()
+        )
+
+        self.pose_head = nn.Linear(hidden_dim, pose_dim)
+        self.reward_head = nn.Linear(hidden_dim, 1)
+        
     
     def forward(self, pose, action):
         """
@@ -36,7 +50,14 @@ class SimpleWorldModel(GRPBase):
         """
         # TODO: Part 1.1 - Implement forward pass
         ## Concatenate pose and action, pass through feature network and output heads
-        pass
+        x = torch.cat([pose, action], dim=-1)
+
+        features = self.feature_net(x)
+
+        next_pose_pred = self.pose_head(features)
+        reward_pred = self.reward_head(features)
+        
+        return next_pose_pred, reward_pred
     
     def predict_next_pose(self, pose, action):
         """
@@ -52,7 +73,14 @@ class SimpleWorldModel(GRPBase):
         """
         # TODO: Part 1.1 - Implement prediction method
         ## Encode action, call forward, and decode pose to original space
-        pass
+        norm_action = self.encode_action(action)
+
+        with torch.no_grad():
+            next_pose_norm, reward = self.forward(pose, norm_action)
+
+        next_pose = self.decode_pose(next_pose_norm)
+        
+        return next_pose, reward
     
     def compute_loss(self, pose, action, target_pose, target_reward=None):
         """
@@ -69,4 +97,10 @@ class SimpleWorldModel(GRPBase):
         """
         # TODO: Part 1.2 - Implement SimpleWorldModel loss computation
         ## Compute MSE loss for pose and reward predictions
-        pass
+        pred_pose, pred_reward = self.forward(pose, action)
+        pose_loss = nn.functionnal.mse_loss(pred_pose, target_pose)
+
+        if target_reward is not None:
+            reward_loss = nn.functionnal.mse_loss(pred_reward, target_reward)
+            return pose_loss + reward_loss
+        return pose_loss

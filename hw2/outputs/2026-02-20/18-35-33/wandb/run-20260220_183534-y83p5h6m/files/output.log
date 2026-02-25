@@ -1,0 +1,43 @@
+[info] Using model type: simple
+False  dreamerV3.py
+False
+False  dreamerV3.py
+Epoch [1/100], Batch [1/15], Loss: 1.4427, policy_loss: 0.0000
+Epoch [1/100], Batch [2/15], Loss: 1.2210, policy_loss: 0.0000
+Epoch [1/100], Batch [3/15], Loss: 0.9971, policy_loss: 0.0000
+Epoch [1/100], Batch [4/15], Loss: 0.8124, policy_loss: 0.0000
+Epoch [1/100], Batch [5/15], Loss: 0.6488, policy_loss: 0.0000
+Epoch [1/100], Batch [6/15], Loss: 0.4776, policy_loss: 0.0000
+Epoch [1/100], Batch [7/15], Loss: 0.3483, policy_loss: 0.0000
+Epoch [1/100], Batch [8/15], Loss: 0.2322, policy_loss: 0.0000
+Epoch [1/100], Batch [9/15], Loss: 0.1468, policy_loss: 0.0000
+Epoch [1/100], Batch [10/15], Loss: 0.0816, policy_loss: 0.0000
+Epoch [1/100], Batch [11/15], Loss: 0.0498, policy_loss: 0.0000
+Epoch [1/100], Batch [12/15], Loss: 0.0419, policy_loss: 0.0000
+Epoch [1/100], Batch [13/15], Loss: 0.0584, policy_loss: 0.0000
+Epoch [1/100], Batch [14/15], Loss: 0.0941, policy_loss: 0.0000
+Epoch [1/100], Batch [15/15], Loss: 0.1220, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:288: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:278.)
+  pose_ = model.encode_pose(torch.tensor([[np.concatenate(
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:301: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  text_goal=torch.tensor(txt_goal).to(device),
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:301: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  text_goal=torch.tensor(txt_goal).to(device),
+avg reward 0.58819422
+Learning rate after epoch 1: 0.000990
+Epoch [2/100], Batch [1/15], Loss: 0.1426, policy_loss: 0.0000
+Epoch [2/100], Batch [2/15], Loss: 0.1431, policy_loss: 0.0000
+Epoch [2/100], Batch [3/15], Loss: 0.1265, policy_loss: 0.0000
+Epoch [2/100], Batch [4/15], Loss: 0.1151, policy_loss: 0.0000
+Epoch [2/100], Batch [5/15], Loss: 0.0963, policy_loss: 0.0000
+Epoch [2/100], Batch [6/15], Loss: 0.0670, policy_loss: 0.0000
+Epoch [2/100], Batch [7/15], Loss: 0.0541, policy_loss: 0.0000
+Epoch [2/100], Batch [8/15], Loss: 0.0378, policy_loss: 0.0000
+Epoch [2/100], Batch [9/15], Loss: 0.0353, policy_loss: 0.0000
+Epoch [2/100], Batch [10/15], Loss: 0.0372, policy_loss: 0.0000

@@ -1,0 +1,11 @@
+[info] Using model type: simple
+False  dreamerV3.py
+False
+Error executing job with overrides: ['++sim.eval_tasks=[0]']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 311, in my_main
+    planner = CEMPlanner(
+  File "/project/60004/samuel/IFT6163_HW2/hw2/planning.py", line 58, in __init__
+    super().__init__(wordl_model, cfg)
+NameError: name 'wordl_model' is not defined
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

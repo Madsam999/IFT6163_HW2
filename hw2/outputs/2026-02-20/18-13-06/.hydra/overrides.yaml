@@ -1,0 +1,6 @@
+- model_type=simple
+- ++testing=false
+- ++max_iters=100
+- ++eval_vid_iters=10
+- ++sim.eval_tasks=[0]
+- ++max_block_size=100

@@ -1,0 +1,5 @@
+[info] Using model type: simple
+False  dreamerV3.py
+False
+False  dreamerV3.py
+Epoch [1/100], Batch [1/15], Loss: 1.5971, policy_loss: 0.0000
