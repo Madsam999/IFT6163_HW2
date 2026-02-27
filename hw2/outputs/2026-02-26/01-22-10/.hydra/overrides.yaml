@@ -1,0 +1,7 @@
+- model_type=simple
+- planner.type=policy_guided_cem
+- planner.horizon=10
+- planner.num_samples=50
+- planner.num_elites=5
+- +load_policy=outputs/2026-02-25/q2_policy_training/model_epoch_31_batch_15.pth
+- experiment.name=q2_policy_cem

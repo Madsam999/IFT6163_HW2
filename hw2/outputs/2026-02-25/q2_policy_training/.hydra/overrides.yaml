@@ -1,0 +1,5 @@
+- model_type=simple
+- planner.type=policy
+- planner.horizon=10
+- max_iters=50
+- experiment.name=q2_policy_training

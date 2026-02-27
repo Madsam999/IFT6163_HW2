@@ -1,0 +1,46 @@
+[info] Using model type: dreamer
+False  dreamerV3.py
+False  dreamerV3.py
+Epoch [1/50], Batch [1/15], Loss: 16649.6309, policy_loss: 0.0000
+Epoch [1/50], Batch [2/15], Loss: 16709.6934, policy_loss: 0.0000
+Epoch [1/50], Batch [3/15], Loss: 16656.0156, policy_loss: 0.0000
+Epoch [1/50], Batch [4/15], Loss: 16652.8477, policy_loss: 0.0000
+Epoch [1/50], Batch [5/15], Loss: 16704.8047, policy_loss: 0.0000
+Epoch [1/50], Batch [6/15], Loss: 16652.3145, policy_loss: 0.0000
+Epoch [1/50], Batch [7/15], Loss: 16605.6582, policy_loss: 0.0000
+Epoch [1/50], Batch [8/15], Loss: 16576.3516, policy_loss: 0.0000
+Epoch [1/50], Batch [9/15], Loss: 16475.8535, policy_loss: 0.0000
+Epoch [1/50], Batch [10/15], Loss: 16293.3174, policy_loss: 0.0000
+Epoch [1/50], Batch [11/15], Loss: 15977.9863, policy_loss: 0.0000
+Epoch [1/50], Batch [12/15], Loss: 15494.6367, policy_loss: 0.0000
+Epoch [1/50], Batch [13/15], Loss: 14679.0381, policy_loss: 0.0000
+Epoch [1/50], Batch [14/15], Loss: 13588.8750, policy_loss: 0.0000
+Epoch [1/50], Batch [15/15], Loss: 12178.9082, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:288: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:278.)
+  pose_ = model.encode_pose(torch.tensor([[np.concatenate(
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:301: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  text_goal=torch.tensor(txt_goal).to(device),
+Error executing job with overrides: ['model_type=dreamer', 'planner.type=cem', 'planner.horizon=10', 'planner.num_samples=100', 'max_iters=50', 'experiment.name=q3_dreamer_cem']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 431, in my_main
+    data = eval_libero(planner, device, cfg, iter_=epoch, log_dir="./",
+  File "/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py", line 299, in eval_libero
+    out = model.forward(
+  File "/project/60004/samuel/IFT6163_HW2/hw2/planning.py", line 238, in forward
+    actions_seq, expected_reward = self.plan(current_state)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/planning.py", line 99, in plan
+    returns = self._evaluate_sequences(initial_state, samples)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/planning.py", line 132, in _evaluate_sequences
+    return self._evaluate_sequences_dreamer(initial_state, action_sequences)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/planning.py", line 156, in _evaluate_sequences_dreamer
+    _, next_state = self.world_model.rssm_step(current_state, actions, embed=None)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamerV3.py", line 248, in rssm_step
+    gru_input = torch.cat([prev_state['z'], action], dim=-1)
+KeyError: 'z'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

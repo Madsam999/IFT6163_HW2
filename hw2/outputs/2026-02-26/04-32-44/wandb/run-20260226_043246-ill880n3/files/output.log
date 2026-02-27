@@ -1,0 +1,9 @@
+[info] Using model type: dreamer
+False  dreamerV3.py
+False  dreamerV3.py
+Error executing job with overrides: ['model_type=dreamer', 'planner.type=cem', 'planner.horizon=10', 'planner.num_samples=100', 'max_iters=50', 'experiment.name=q3_dreamer_cem']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 401, in my_main
+    batch_loss = loss_dict['loss']
+KeyError: 'loss'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

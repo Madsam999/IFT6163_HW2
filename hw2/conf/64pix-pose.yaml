@@ -10,7 +10,7 @@ use_policy: false
 
 # Add this at the very bottom of 64pix-pose.yaml
 testing: false
-max_iters: 100
+max_iters: 50
 eval_vid_iters: 10
 
 policy:
@@ -44,6 +44,7 @@ model:
   type: "dense"         # Changed to dense for SimpleWorldModel (MLP)
 
 batch_size: 64
+max_block_size: 16
 learning_rate: 3e-4
 device: "cuda"
 

@@ -1,0 +1,32 @@
+{
+    "os": "Linux-5.14.0-570.33.2.el9_6.x86_64-x86_64-with-glibc2.35",
+    "python": "3.10.19",
+    "heartbeatAt": "2026-02-26T01:22:13.074414",
+    "startedAt": "2026-02-26T01:22:12.566161",
+    "docker": null,
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "gpu_count": 1,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [
+        "model_type=simple",
+        "planner.type=policy_guided_cem",
+        "planner.horizon=10",
+        "planner.num_samples=50",
+        "planner.num_elites=5",
+        "+load_policy=outputs/2026-02-25/q2_policy_training/model_epoch_31_batch_15.pth",
+        "experiment.name=q2_policy_cem"
+    ],
+    "state": "running",
+    "program": "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py",
+    "codePath": "hw2/dreamer_model_trainer.py",
+    "git": {
+        "remote": "https://github.com/Madsam999/IFT6163_HW2.git",
+        "commit": "e713af1998e0bbb036bd9b7fc5ba4f1521249c80"
+    },
+    "email": "samuelfournier06@gmail.com",
+    "root": "/project/60004/samuel/IFT6163_HW2",
+    "host": "nodegpupool2.int.ift6163.calculquebec.cloud",
+    "username": "samuel",
+    "executable": "/opt/conda/envs/roble/bin/python"
+}

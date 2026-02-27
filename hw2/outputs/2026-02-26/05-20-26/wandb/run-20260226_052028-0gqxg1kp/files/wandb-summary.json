@@ -1,0 +1,1 @@
+{"train/loss": 12178.908203125, "train/lr": 0.001, "epoch": 1, "train/recon_loss": 12177.3486328125, "train/reward_loss": 0.01855829358100891, "train/continue_loss": 0.0023201170843094587, "train/dyn_loss": 1.3994163274765015, "train/rep_loss": 1.3994163274765015, "_timestamp": 1772083836.9514723, "_runtime": 608.5871393680573, "_step": 14, "_wandb": {"runtime": 616}}

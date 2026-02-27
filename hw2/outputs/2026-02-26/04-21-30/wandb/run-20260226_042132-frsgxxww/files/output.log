@@ -1,0 +1,11 @@
+Error executing job with overrides: ['model_type=dreamer', 'planner.type=cem', 'planner.horizon=10', 'planner.num_samples=100', 'max_iters=50', 'experiment.name=q3_dreamer_cem']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 286, in my_main
+    model = create_model(model_type, img_shape, action_dim=7, device=device, cfg=cfg)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 36, in create_model
+    model = DreamerV3(obs_shape=img_shape, action_dim=action_dim, cfg=cfg).to(device)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamerV3.py", line 155, in __init__
+    super().__init__()
+TypeError: GRPBase.__init__() missing 1 required positional argument: 'cfg'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[info] Using model type: dreamer

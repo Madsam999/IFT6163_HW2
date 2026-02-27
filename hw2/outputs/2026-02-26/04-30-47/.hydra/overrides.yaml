@@ -1,0 +1,6 @@
+- model_type=dreamer
+- planner.type=cem
+- planner.horizon=10
+- planner.num_samples=100
+- max_iters=50
+- experiment.name=q3_dreamer_cem

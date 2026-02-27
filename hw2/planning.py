@@ -138,6 +138,32 @@ class CEMPlanner(Planner):
         """
         # TODO: Part 3.3 - Implement CEM planning with DreamerV3
         ## Roll out action sequences in the DreamerV3 world model and compute total rewards
+        num_samples, horizon, action_dim = action_sequences.shape
+        device = action_sequences.device
+        
+        current_state = {}
+        for key, value in initial_state.items():
+            if value is not None:
+                current_state[key] = value.repeat(num_samples, *([1] * (value.dim() - 1)))
+                
+        total_rewards = torch.zeros(num_samples, 1, device=device)
+        
+        self.world_model.eval()
+        with torch.no_grad():
+            for t in range(horizon):
+                actions = action_sequences[:, t, :]
+                
+                _, next_state = self.world_model.rssm_step(current_state, actions, embed=None)
+                
+                features = torch.cat([next_state['h'], next_state['z']], dim=-1)
+                
+                reward = self.world_model.reward_head(features)
+                
+                total_rewards += reward
+                
+                current_state = next_state
+                
+        return total_rewards.squeeze(-1)
         pass
     
     def _evaluate_sequences_simple(self, initial_state, action_sequences):
@@ -151,7 +177,7 @@ class CEMPlanner(Planner):
 
         if current_pose.dim() == 1:
             current_pose = current_pose.unsqueeze(0)
-        elif current_pose.dim() == 3: # Handle [1, 1, 7] if it exists
+        elif current_pose.dim() == 3:
             current_pose = current_pose.squeeze(1)
 
         current_pose = current_pose.repeat(num_samples, 1).contiguous()
@@ -195,44 +221,74 @@ class CEMPlanner(Planner):
         """
         # TODO: Part 1.3 - Route forward pass to appropriate model
         ## Determine if using DreamerV3 or SimpleWorldModel and call appropriate method
-        # 1. Route to SimpleWorldModel
         if self.is_simple_model:
-            # SimpleWorldModel only needs the current pose
-            initial_state = {'pose': pose}
+            # Handle edge case where eval script passes pose positionally into observations
+            if pose is None and observations is not None:
+                pose = observations
+            return self._forward_simple(pose, return_full_sequence)
             
-            # Call the planning loop
-            best_actions, best_reward = self.plan(
-                initial_state, 
-                return_best_sequence=return_full_sequence
-            )
-            
-            return {
-                'actions': best_actions,
-                'predicted_reward': best_reward,
-                'final_state': initial_state
-            }
-
         # 2. Route to DreamerV3
         else:
-            # DreamerV3 needs observations and previous states to update the RSSM
-            return self._forward_dreamer(
-                observations, 
-                prev_actions, 
-                prev_state, 
-                return_full_sequence
-            )
+            return self._forward_dreamer(observations, prev_actions, prev_state, return_full_sequence)
     
     def _forward_dreamer(self, observations, prev_actions, prev_state, return_full_sequence):
         """Forward pass for DreamerV3 model."""
         # TODO: Part 4.2 - Implement DreamerV3 forward pass for policy
         ## Encode observations, roll through RSSM, and plan with policy from current state
-        pass
+        B = observations.shape[0]
+        device = observations.device
+        
+        latest_obs = observations[:, -1]
+        
+        embed = self.world_model.encoder(latest_obs)
+        
+        if prev_state is None:
+            prev_state = self.world_model.get_initial_state(B, device)
+        if prev_actions is None:
+            last_action = torch.zeros(B, self.action_dim, device=device)
+        else:
+            last_action = prev_actions[:, -1]
+            
+        current_state, _ = self.world_model.rssm_step(prev_state, last_action, embed)
+        
+        actions_seq, expected_reward = self.plan(current_state)
+
+        if return_full_sequence:
+            actions_out = actions_seq.unsqueeze(0) 
+        else:
+            actions_out = actions_seq[0].unsqueeze(0) 
+            
+        return {
+            "actions": actions_out,
+            "predicted_rewards": expected_reward,
+            "final_state": current_state
+        }
+
+    def _forward_simple(self, pose, return_full_sequence=False):
+        """Forward pass for SimpleWorldModel inside CEM Planner."""
+        current_state = {"pose": pose}
+        
+        # CEM plan() returns both the sequence and the expected reward
+        actions_seq, expected_reward = self.plan(current_state)
+        
+        if return_full_sequence:
+            actions_out = actions_seq.unsqueeze(0)
+        else:
+            # Extract just the first action for execution and keep batch dim
+            actions_out = actions_seq[0].unsqueeze(0)
+            
+        return {
+            "actions": actions_out,
+            "predicted_rewards": expected_reward,
+            "final_state": current_state
+        }
 
         # [Imagine method remains mostly the same, ensuring valid input shapes for heads]
     def preprocess_state(self, image):
         """Preprocess observation image"""
         # TODO: Preprocess image for input
         ## Resize, normalize, and convert to channel-first format
+        return self.world_model.preprocess_state(image)
         pass
 
 
@@ -373,13 +429,18 @@ class PolicyPlanner(GRPBase):
             for t in range(self.horizon):
                 if is_simple_model:
                     state_tensor = current_state["pose"]
+                    action = self.policy_model(state_tensor)
+                    actions_seq.append(action)
+                    next_state, reward = self.world_model.step(current_state, action)
                 else:
                     state_tensor = torch.cat([current_state["h"], current_state["z"]], dim=-1)
-                
-                action = self.policy_model(state_tensor)
-                actions_seq.append(action)
-
-                next_state, reward = self.world_model.step(current_state, action)
+                    action = self.policy_model(state_tensor)
+                    actions_seq.append(action)
+                    
+                    _, next_state = self.world_model.rssm_step(current_state, action, embed=None)
+                    
+                    features = torch.cat([next_state['h'], next_state['z']], dim=-1)
+                    reward = self.world_model.reward_head(features)
 
                 total_reward += reward
                 current_state = next_state
@@ -435,7 +496,40 @@ class PolicyPlanner(GRPBase):
         """Forward pass for DreamerV3 model."""
         # TODO: Part 4.2 - Implement DreamerV3 forward pass for policy
         ## Encode observations, roll through RSSM, and plan with policy from current state
-        pass
+        B = observations.shape[0]
+        device = observations.device
+        
+        # 1. Get the latest observation to anchor our starting state
+        latest_obs = observations[:, -1]
+        
+        # 2. Encode the raw image into a feature embedding
+        embed = self.world_model.encoder(latest_obs)
+        
+        # 3. Setup default previous state/action if None are provided
+        if prev_state is None:
+            prev_state = self.world_model.get_initial_state(B, device)
+        if prev_actions is None:
+            last_action = torch.zeros(B, self.action_dim, device=device)
+        else:
+            last_action = prev_actions[:, -1]
+            
+        # 4. Step the RSSM to get the current Posterior state (incorporating the real image)
+        current_state, _ = self.world_model.rssm_step(prev_state, last_action, embed)
+        
+        # 5. Pass the latent state to our updated plan() method
+        actions_seq, expected_reward = self.plan(current_state)
+        
+        if return_full_sequence:
+            actions_out = actions_seq
+        else:
+            actions_out = actions_seq[:, 0, :]
+            
+        return {
+            "actions": actions_out,
+            "predicted_rewards": expected_reward,
+            "final_state": current_state
+        }
+        
     
     def _forward_simple(self, pose, return_full_sequence):
         """Forward pass for SimpleWorldModel."""

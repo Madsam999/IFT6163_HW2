@@ -1,0 +1,19 @@
+[info] Using model type: dreamer
+False  dreamerV3.py
+False  dreamerV3.py
+/project/60004/samuel/IFT6163_HW2/hw2/dreamerV3.py:365: UserWarning: Using a target size (torch.Size([32, 16])) that is different to the input size (torch.Size([32, 16, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  reward_loss = F.mse_loss(output['rewards'], rewards)
+Error executing job with overrides: ['model_type=dreamer', 'planner.type=cem', 'planner.horizon=10', 'planner.num_samples=100', 'max_iters=50', 'experiment.name=q3_dreamer_cem']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 398, in my_main
+    loss_dict = model_wrapper.compute_loss(output, images, rewards, dones, poses, actions)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 91, in compute_loss
+    return self.model.compute_loss(
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamerV3.py", line 365, in compute_loss
+    reward_loss = F.mse_loss(output['rewards'], rewards)
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/torch/nn/functional.py", line 3791, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/opt/conda/envs/roble/lib/python3.10/site-packages/torch/functional.py", line 76, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (16) must match the size of tensor b (32) at non-singleton dimension 1
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

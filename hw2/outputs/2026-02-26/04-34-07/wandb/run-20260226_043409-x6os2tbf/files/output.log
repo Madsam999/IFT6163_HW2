@@ -1,0 +1,36 @@
+[info] Using model type: dreamer
+False  dreamerV3.py
+False  dreamerV3.py
+Epoch [1/50], Batch [1/15], Loss: 16668.5781, policy_loss: 0.0000
+Epoch [1/50], Batch [2/15], Loss: 16590.8594, policy_loss: 0.0000
+Epoch [1/50], Batch [3/15], Loss: 16784.3145, policy_loss: 0.0000
+Epoch [1/50], Batch [4/15], Loss: 16724.6289, policy_loss: 0.0000
+Epoch [1/50], Batch [5/15], Loss: 16620.0898, policy_loss: 0.0000
+Epoch [1/50], Batch [6/15], Loss: 16544.5957, policy_loss: 0.0000
+Epoch [1/50], Batch [7/15], Loss: 16586.0859, policy_loss: 0.0000
+Epoch [1/50], Batch [8/15], Loss: 16554.3945, policy_loss: 0.0000
+Epoch [1/50], Batch [9/15], Loss: 16337.9668, policy_loss: 0.0000
+Epoch [1/50], Batch [10/15], Loss: 16078.2490, policy_loss: 0.0000
+Epoch [1/50], Batch [11/15], Loss: 15486.9258, policy_loss: 0.0000
+Epoch [1/50], Batch [12/15], Loss: 14509.3340, policy_loss: 0.0000
+Epoch [1/50], Batch [13/15], Loss: 13282.6670, policy_loss: 0.0000
+Epoch [1/50], Batch [14/15], Loss: 11806.0293, policy_loss: 0.0000
+Epoch [1/50], Batch [15/15], Loss: 10273.4971, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:288: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:278.)
+  pose_ = model.encode_pose(torch.tensor([[np.concatenate(
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:301: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  text_goal=torch.tensor(txt_goal).to(device),
+Error executing job with overrides: ['model_type=dreamer', 'planner.type=cem', 'planner.horizon=10', 'planner.num_samples=100', 'max_iters=50', 'experiment.name=q3_dreamer_cem']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 431, in my_main
+    data = eval_libero(planner, device, cfg, iter_=epoch, log_dir="./",
+  File "/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py", line 308, in eval_libero
+    action = model.decode_action(out['actions'][0]).cpu().detach().numpy()
+TypeError: 'NoneType' object is not subscriptable
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Using first observation as goal image

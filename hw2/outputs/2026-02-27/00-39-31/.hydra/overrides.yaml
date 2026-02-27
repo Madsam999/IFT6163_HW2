@@ -1,0 +1,6 @@
+- model_type=simple
+- planner.type=cem
+- planner.horizon=5
+- planner.num_samples=100
+- max_iters=50
+- experiment.name=q1_simple_cem
