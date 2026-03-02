@@ -1,0 +1,5 @@
+- model_type=dreamer
+- planner.type=policy
+- planner.horizon=10
+- +training.num_epochs=100
+- +exp_name=q4_dreamer_policy

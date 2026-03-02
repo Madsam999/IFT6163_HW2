@@ -1,0 +1,7 @@
+- model_type=simple
+- planner.type=cem
+- planner.horizon=10
+- planner.num_samples=50
+- planner.num_elites=5
+- +training.num_epochs=50
+- +exp_name=q1_simple_cem_s50

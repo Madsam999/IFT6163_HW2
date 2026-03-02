@@ -91,24 +91,24 @@ class CEMPlanner(Planner):
         mean = torch.zeros(self.horizon, self.action_dim, device=device)
         std = torch.ones(self.horizon, self.action_dim, device=device)
 
-        for i in range(self.iterations):
-            samples = mean + std * torch.randn(self.num_samples, self.horizon, self.action_dim, device=device)
+        with torch.no_grad():
+            for i in range(self.iterations):
+                samples = mean + std * torch.randn(self.num_samples, self.horizon, self.action_dim, device=device)
+                samples = torch.clamp(samples, -1.0, 1.0)
+                
+                returns = self._evaluate_sequences(initial_state, samples)
 
-            samples = torch.clamp(samples, -1.0, 1.0)
+                _, elite_indices = torch.topk(returns, self.num_elites)
+                elites = samples[elite_indices]
 
-            returns = self._evaluate_sequences(initial_state, samples)
+                mean = torch.mean(elites, dim=0)
+                std = torch.std(elites, dim=0) + 1e-6
 
-            _, elite_indices = torch.topk(returns, self.num_elites)
-            elites = samples[elite_indices]
-
-            mean = torch.mean(elites, dim=0)
-            std = torch.std(elites, dim=0) + 1e-6
-
-        if return_best_sequence:
-            best_idx = torch.argmax(returns)
-            return samples[best_idx], torch.max(returns)
-        
-        return mean, torch.mean(returns)
+            if return_best_sequence:
+                best_idx = torch.argmax(returns)
+                return samples[best_idx], torch.max(returns)
+            
+            return mean, torch.mean(returns)
     
     def _evaluate_sequences(self, initial_state, action_sequences):
         """
@@ -181,14 +181,14 @@ class CEMPlanner(Planner):
             current_pose = current_pose.squeeze(1)
 
         current_pose = current_pose.repeat(num_samples, 1).contiguous()
-
         total_rewards = torch.zeros(num_samples, device=self.cfg.device)
 
+        self.world_model.eval()
+        
+        
         for t in range(self.horizon):
             actions_t = action_sequences[:, t, :]
-
             next_pose_pred, reward_pred = self.world_model(current_pose, actions_t)
-
             total_rewards += reward_pred.view(-1)
             current_pose = next_pose_pred
             
@@ -498,26 +498,22 @@ class PolicyPlanner(GRPBase):
         ## Encode observations, roll through RSSM, and plan with policy from current state
         B = observations.shape[0]
         device = observations.device
-        
-        # 1. Get the latest observation to anchor our starting state
         latest_obs = observations[:, -1]
         
-        # 2. Encode the raw image into a feature embedding
-        embed = self.world_model.encoder(latest_obs)
+        self.world_model.eval() 
         
-        # 3. Setup default previous state/action if None are provided
-        if prev_state is None:
-            prev_state = self.world_model.get_initial_state(B, device)
-        if prev_actions is None:
-            last_action = torch.zeros(B, self.action_dim, device=device)
-        else:
-            last_action = prev_actions[:, -1]
+        with torch.no_grad(): 
+            embed = self.world_model.encoder(latest_obs)
             
-        # 4. Step the RSSM to get the current Posterior state (incorporating the real image)
-        current_state, _ = self.world_model.rssm_step(prev_state, last_action, embed)
-        
-        # 5. Pass the latent state to our updated plan() method
-        actions_seq, expected_reward = self.plan(current_state)
+            if prev_state is None:
+                prev_state = self.world_model.get_initial_state(B, device)
+            if prev_actions is None:
+                last_action = torch.zeros(B, self.action_dim, device=device)
+            else:
+                last_action = prev_actions[:, -1]
+                
+            current_state, _ = self.world_model.rssm_step(prev_state, last_action, embed)
+            actions_seq, expected_reward = self.plan(current_state)
         
         if return_full_sequence:
             actions_out = actions_seq

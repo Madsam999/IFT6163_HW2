@@ -1,0 +1,862 @@
+[info] Using model type: dreamer
+False  dreamerV3.py
+False  dreamerV3.py
+Epoch [1/50], Batch [1/15], Loss: 16736.9219, policy_loss: 0.0000
+Epoch [1/50], Batch [2/15], Loss: 16679.0742, policy_loss: 0.0000
+Epoch [1/50], Batch [3/15], Loss: 16663.8789, policy_loss: 0.0000
+Epoch [1/50], Batch [4/15], Loss: 16696.6230, policy_loss: 0.0000
+Epoch [1/50], Batch [5/15], Loss: 16639.6543, policy_loss: 0.0000
+Epoch [1/50], Batch [6/15], Loss: 16588.1484, policy_loss: 0.0000
+Epoch [1/50], Batch [7/15], Loss: 16644.3164, policy_loss: 0.0000
+Epoch [1/50], Batch [8/15], Loss: 16449.9004, policy_loss: 0.0000
+Epoch [1/50], Batch [9/15], Loss: 16186.5498, policy_loss: 0.0000
+Epoch [1/50], Batch [10/15], Loss: 15748.1992, policy_loss: 0.0000
+Epoch [1/50], Batch [11/15], Loss: 15042.3535, policy_loss: 0.0000
+Epoch [1/50], Batch [12/15], Loss: 14020.4229, policy_loss: 0.0000
+Epoch [1/50], Batch [13/15], Loss: 12564.3848, policy_loss: 0.0000
+Epoch [1/50], Batch [14/15], Loss: 10911.7988, policy_loss: 0.0000
+Epoch [1/50], Batch [15/15], Loss: 9911.4883, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:288: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:278.)
+  pose_ = model.encode_pose(torch.tensor([[np.concatenate(
+/project/60004/samuel/IFT6163_HW2/hw2/sim_eval.py:301: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  text_goal=torch.tensor(txt_goal).to(device),
+[info] retrieving task 1 from suite libero_spatial, the language instruction is pick up the black bowl next to the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+avg reward 0.68275644
+Learning rate after epoch 1: 0.000980
+Epoch [2/50], Batch [1/15], Loss: 10433.0371, policy_loss: 0.0000
+Epoch [2/50], Batch [2/15], Loss: 10533.0342, policy_loss: 0.0000
+Epoch [2/50], Batch [3/15], Loss: 9413.7627, policy_loss: 0.0000
+Epoch [2/50], Batch [4/15], Loss: 8451.7803, policy_loss: 0.0000
+Epoch [2/50], Batch [5/15], Loss: 8169.9717, policy_loss: 0.0000
+Epoch [2/50], Batch [6/15], Loss: 8154.4683, policy_loss: 0.0000
+Epoch [2/50], Batch [7/15], Loss: 8056.7935, policy_loss: 0.0000
+Epoch [2/50], Batch [8/15], Loss: 7570.8584, policy_loss: 0.0000
+Epoch [2/50], Batch [9/15], Loss: 7137.3945, policy_loss: 0.0000
+Epoch [2/50], Batch [10/15], Loss: 6764.5361, policy_loss: 0.0000
+Epoch [2/50], Batch [11/15], Loss: 6735.0918, policy_loss: 0.0000
+Epoch [2/50], Batch [12/15], Loss: 6585.9585, policy_loss: 0.0000
+Epoch [2/50], Batch [13/15], Loss: 6181.5532, policy_loss: 0.0000
+Epoch [2/50], Batch [14/15], Loss: 5851.3286, policy_loss: 0.0000
+Epoch [2/50], Batch [15/15], Loss: 5892.2036, policy_loss: 0.0000
+Learning rate after epoch 2: 0.000960
+Epoch [3/50], Batch [1/15], Loss: 5559.0479, policy_loss: 0.0000
+Epoch [3/50], Batch [2/15], Loss: 5347.9141, policy_loss: 0.0000
+Epoch [3/50], Batch [3/15], Loss: 5197.2012, policy_loss: 0.0000
+Epoch [3/50], Batch [4/15], Loss: 5205.4482, policy_loss: 0.0000
+Epoch [3/50], Batch [5/15], Loss: 4945.0645, policy_loss: 0.0000
+Epoch [3/50], Batch [6/15], Loss: 4846.4956, policy_loss: 0.0000
+Epoch [3/50], Batch [7/15], Loss: 4697.7827, policy_loss: 0.0000
+Epoch [3/50], Batch [8/15], Loss: 4547.8613, policy_loss: 0.0000
+Epoch [3/50], Batch [9/15], Loss: 4424.1929, policy_loss: 0.0000
+Epoch [3/50], Batch [10/15], Loss: 4229.7637, policy_loss: 0.0000
+Epoch [3/50], Batch [11/15], Loss: 4024.9688, policy_loss: 0.0000
+Epoch [3/50], Batch [12/15], Loss: 3895.1216, policy_loss: 0.0000
+Epoch [3/50], Batch [13/15], Loss: 3788.7451, policy_loss: 0.0000
+Epoch [3/50], Batch [14/15], Loss: 3711.1926, policy_loss: 0.0000
+Epoch [3/50], Batch [15/15], Loss: 3665.0662, policy_loss: 0.0000
+Learning rate after epoch 3: 0.000941
+Epoch [4/50], Batch [1/15], Loss: 3539.0588, policy_loss: 0.0000
+Epoch [4/50], Batch [2/15], Loss: 3460.5474, policy_loss: 0.0000
+Epoch [4/50], Batch [3/15], Loss: 3362.0315, policy_loss: 0.0000
+Epoch [4/50], Batch [4/15], Loss: 3310.8359, policy_loss: 0.0000
+Epoch [4/50], Batch [5/15], Loss: 3225.5583, policy_loss: 0.0000
+Epoch [4/50], Batch [6/15], Loss: 3099.7058, policy_loss: 0.0000
+Epoch [4/50], Batch [7/15], Loss: 3047.9050, policy_loss: 0.0000
+Epoch [4/50], Batch [8/15], Loss: 2914.4316, policy_loss: 0.0000
+Epoch [4/50], Batch [9/15], Loss: 2878.3772, policy_loss: 0.0000
+Epoch [4/50], Batch [10/15], Loss: 2807.7314, policy_loss: 0.0000
+Epoch [4/50], Batch [11/15], Loss: 2699.6143, policy_loss: 0.0000
+Epoch [4/50], Batch [12/15], Loss: 2674.7046, policy_loss: 0.0000
+Epoch [4/50], Batch [13/15], Loss: 2655.5603, policy_loss: 0.0000
+Epoch [4/50], Batch [14/15], Loss: 2602.1125, policy_loss: 0.0000
+Epoch [4/50], Batch [15/15], Loss: 2500.4641, policy_loss: 0.0000
+Learning rate after epoch 4: 0.000921
+Epoch [5/50], Batch [1/15], Loss: 2388.3469, policy_loss: 0.0000
+Epoch [5/50], Batch [2/15], Loss: 2360.0696, policy_loss: 0.0000
+Epoch [5/50], Batch [3/15], Loss: 2317.6726, policy_loss: 0.0000
+Epoch [5/50], Batch [4/15], Loss: 2325.0806, policy_loss: 0.0000
+Epoch [5/50], Batch [5/15], Loss: 2201.5037, policy_loss: 0.0000
+Epoch [5/50], Batch [6/15], Loss: 2224.3508, policy_loss: 0.0000
+Epoch [5/50], Batch [7/15], Loss: 2167.2385, policy_loss: 0.0000
+Epoch [5/50], Batch [8/15], Loss: 2100.9824, policy_loss: 0.0000
+Epoch [5/50], Batch [9/15], Loss: 2079.7634, policy_loss: 0.0000
+Epoch [5/50], Batch [10/15], Loss: 2089.8330, policy_loss: 0.0000
+Epoch [5/50], Batch [11/15], Loss: 2044.5951, policy_loss: 0.0000
+Epoch [5/50], Batch [12/15], Loss: 1980.2838, policy_loss: 0.0000
+Epoch [5/50], Batch [13/15], Loss: 1947.3439, policy_loss: 0.0000
+Epoch [5/50], Batch [14/15], Loss: 1976.5238, policy_loss: 0.0000
+Epoch [5/50], Batch [15/15], Loss: 1952.1378, policy_loss: 0.0000
+Learning rate after epoch 5: 0.000901
+Epoch [6/50], Batch [1/15], Loss: 1851.3673, policy_loss: 0.0000
+Epoch [6/50], Batch [2/15], Loss: 1833.9633, policy_loss: 0.0000
+Epoch [6/50], Batch [3/15], Loss: 1862.4836, policy_loss: 0.0000
+Epoch [6/50], Batch [4/15], Loss: 1817.8641, policy_loss: 0.0000
+Epoch [6/50], Batch [5/15], Loss: 1762.5811, policy_loss: 0.0000
+Epoch [6/50], Batch [6/15], Loss: 1708.2821, policy_loss: 0.0000
+Epoch [6/50], Batch [7/15], Loss: 1712.0679, policy_loss: 0.0000
+Epoch [6/50], Batch [8/15], Loss: 1759.9447, policy_loss: 0.0000
+Epoch [6/50], Batch [9/15], Loss: 1713.6592, policy_loss: 0.0000
+Epoch [6/50], Batch [10/15], Loss: 1719.8114, policy_loss: 0.0000
+Epoch [6/50], Batch [11/15], Loss: 1648.4111, policy_loss: 0.0000
+Epoch [6/50], Batch [12/15], Loss: 1612.2006, policy_loss: 0.0000
+Epoch [6/50], Batch [13/15], Loss: 1598.7631, policy_loss: 0.0000
+Epoch [6/50], Batch [14/15], Loss: 1595.3545, policy_loss: 0.0000
+Epoch [6/50], Batch [15/15], Loss: 1596.6342, policy_loss: 0.0000
+Learning rate after epoch 6: 0.000881
+Epoch [7/50], Batch [1/15], Loss: 1573.1118, policy_loss: 0.0000
+Epoch [7/50], Batch [2/15], Loss: 1487.8896, policy_loss: 0.0000
+Epoch [7/50], Batch [3/15], Loss: 1475.3070, policy_loss: 0.0000
+Epoch [7/50], Batch [4/15], Loss: 1476.9288, policy_loss: 0.0000
+Epoch [7/50], Batch [5/15], Loss: 1472.5234, policy_loss: 0.0000
+Epoch [7/50], Batch [6/15], Loss: 1476.6288, policy_loss: 0.0000
+Epoch [7/50], Batch [7/15], Loss: 1448.2413, policy_loss: 0.0000
+Epoch [7/50], Batch [8/15], Loss: 1382.6853, policy_loss: 0.0000
+Epoch [7/50], Batch [9/15], Loss: 1344.2698, policy_loss: 0.0000
+Epoch [7/50], Batch [10/15], Loss: 1477.6638, policy_loss: 0.0000
+Epoch [7/50], Batch [11/15], Loss: 1430.2767, policy_loss: 0.0000
+Epoch [7/50], Batch [12/15], Loss: 1466.9921, policy_loss: 0.0000
+Epoch [7/50], Batch [13/15], Loss: 1287.3435, policy_loss: 0.0000
+Epoch [7/50], Batch [14/15], Loss: 1339.9530, policy_loss: 0.0000
+Epoch [7/50], Batch [15/15], Loss: 1285.5975, policy_loss: 0.0000
+Learning rate after epoch 7: 0.000861
+Epoch [8/50], Batch [1/15], Loss: 1279.7053, policy_loss: 0.0000
+Epoch [8/50], Batch [2/15], Loss: 1318.4316, policy_loss: 0.0000
+Epoch [8/50], Batch [3/15], Loss: 1252.7736, policy_loss: 0.0000
+Epoch [8/50], Batch [4/15], Loss: 1237.2852, policy_loss: 0.0000
+Epoch [8/50], Batch [5/15], Loss: 1236.8142, policy_loss: 0.0000
+Epoch [8/50], Batch [6/15], Loss: 1285.3855, policy_loss: 0.0000
+Epoch [8/50], Batch [7/15], Loss: 1187.9502, policy_loss: 0.0000
+Epoch [8/50], Batch [8/15], Loss: 1227.8053, policy_loss: 0.0000
+Epoch [8/50], Batch [9/15], Loss: 1196.0327, policy_loss: 0.0000
+Epoch [8/50], Batch [10/15], Loss: 1229.2113, policy_loss: 0.0000
+Epoch [8/50], Batch [11/15], Loss: 1134.7314, policy_loss: 0.0000
+Epoch [8/50], Batch [12/15], Loss: 1128.3790, policy_loss: 0.0000
+Epoch [8/50], Batch [13/15], Loss: 1173.1051, policy_loss: 0.0000
+Epoch [8/50], Batch [14/15], Loss: 1157.6587, policy_loss: 0.0000
+Epoch [8/50], Batch [15/15], Loss: 1121.7676, policy_loss: 0.0000
+Learning rate after epoch 8: 0.000842
+Epoch [9/50], Batch [1/15], Loss: 1156.9298, policy_loss: 0.0000
+Epoch [9/50], Batch [2/15], Loss: 1100.3643, policy_loss: 0.0000
+Epoch [9/50], Batch [3/15], Loss: 1082.2426, policy_loss: 0.0000
+Epoch [9/50], Batch [4/15], Loss: 1045.1266, policy_loss: 0.0000
+Epoch [9/50], Batch [5/15], Loss: 1050.9546, policy_loss: 0.0000
+Epoch [9/50], Batch [6/15], Loss: 1005.2227, policy_loss: 0.0000
+Epoch [9/50], Batch [7/15], Loss: 1067.8478, policy_loss: 0.0000
+Epoch [9/50], Batch [8/15], Loss: 1023.2476, policy_loss: 0.0000
+Epoch [9/50], Batch [9/15], Loss: 1093.3029, policy_loss: 0.0000
+Epoch [9/50], Batch [10/15], Loss: 989.3629, policy_loss: 0.0000
+Epoch [9/50], Batch [11/15], Loss: 983.7690, policy_loss: 0.0000
+Epoch [9/50], Batch [12/15], Loss: 972.2038, policy_loss: 0.0000
+Epoch [9/50], Batch [13/15], Loss: 940.0200, policy_loss: 0.0000
+Epoch [9/50], Batch [14/15], Loss: 976.2776, policy_loss: 0.0000
+Epoch [9/50], Batch [15/15], Loss: 923.6382, policy_loss: 0.0000
+Learning rate after epoch 9: 0.000822
+Epoch [10/50], Batch [1/15], Loss: 1010.0251, policy_loss: 0.0000
+Epoch [10/50], Batch [2/15], Loss: 973.0193, policy_loss: 0.0000
+Epoch [10/50], Batch [3/15], Loss: 909.2133, policy_loss: 0.0000
+Epoch [10/50], Batch [4/15], Loss: 947.9675, policy_loss: 0.0000
+Epoch [10/50], Batch [5/15], Loss: 975.3530, policy_loss: 0.0000
+Epoch [10/50], Batch [6/15], Loss: 960.3440, policy_loss: 0.0000
+Epoch [10/50], Batch [7/15], Loss: 982.2148, policy_loss: 0.0000
+Epoch [10/50], Batch [8/15], Loss: 987.2985, policy_loss: 0.0000
+Epoch [10/50], Batch [9/15], Loss: 894.6375, policy_loss: 0.0000
+Epoch [10/50], Batch [10/15], Loss: 892.1725, policy_loss: 0.0000
+Epoch [10/50], Batch [11/15], Loss: 907.9786, policy_loss: 0.0000
+Epoch [10/50], Batch [12/15], Loss: 924.9252, policy_loss: 0.0000
+Epoch [10/50], Batch [13/15], Loss: 918.8398, policy_loss: 0.0000
+Epoch [10/50], Batch [14/15], Loss: 873.5820, policy_loss: 0.0000
+Epoch [10/50], Batch [15/15], Loss: 827.6323, policy_loss: 0.0000
+Learning rate after epoch 10: 0.000802
+Epoch [11/50], Batch [1/15], Loss: 854.9634, policy_loss: 0.0000
+Epoch [11/50], Batch [2/15], Loss: 887.0693, policy_loss: 0.0000
+Epoch [11/50], Batch [3/15], Loss: 820.4791, policy_loss: 0.0000
+Epoch [11/50], Batch [4/15], Loss: 836.2406, policy_loss: 0.0000
+Epoch [11/50], Batch [5/15], Loss: 895.5574, policy_loss: 0.0000
+Epoch [11/50], Batch [6/15], Loss: 781.9981, policy_loss: 0.0000
+Epoch [11/50], Batch [7/15], Loss: 864.6691, policy_loss: 0.0000
+Epoch [11/50], Batch [8/15], Loss: 883.9443, policy_loss: 0.0000
+Epoch [11/50], Batch [9/15], Loss: 826.9747, policy_loss: 0.0000
+Epoch [11/50], Batch [10/15], Loss: 854.1046, policy_loss: 0.0000
+Epoch [11/50], Batch [11/15], Loss: 851.3074, policy_loss: 0.0000
+Epoch [11/50], Batch [12/15], Loss: 831.9411, policy_loss: 0.0000
+Epoch [11/50], Batch [13/15], Loss: 863.4341, policy_loss: 0.0000
+Epoch [11/50], Batch [14/15], Loss: 873.6043, policy_loss: 0.0000
+Epoch [11/50], Batch [15/15], Loss: 802.9594, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+[info] retrieving task 1 from suite libero_spatial, the language instruction is pick up the black bowl next to the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+avg reward 0.44362628
+Learning rate after epoch 11: 0.000782
+Epoch [12/50], Batch [1/15], Loss: 812.3547, policy_loss: 0.0000
+Epoch [12/50], Batch [2/15], Loss: 789.8815, policy_loss: 0.0000
+Epoch [12/50], Batch [3/15], Loss: 795.6777, policy_loss: 0.0000
+Epoch [12/50], Batch [4/15], Loss: 799.6469, policy_loss: 0.0000
+Epoch [12/50], Batch [5/15], Loss: 845.7927, policy_loss: 0.0000
+Epoch [12/50], Batch [6/15], Loss: 846.1233, policy_loss: 0.0000
+Epoch [12/50], Batch [7/15], Loss: 846.8578, policy_loss: 0.0000
+Epoch [12/50], Batch [8/15], Loss: 782.0807, policy_loss: 0.0000
+Epoch [12/50], Batch [9/15], Loss: 820.1120, policy_loss: 0.0000
+Epoch [12/50], Batch [10/15], Loss: 821.2407, policy_loss: 0.0000
+Epoch [12/50], Batch [11/15], Loss: 788.7363, policy_loss: 0.0000
+Epoch [12/50], Batch [12/15], Loss: 770.6378, policy_loss: 0.0000
+Epoch [12/50], Batch [13/15], Loss: 756.3710, policy_loss: 0.0000
+Epoch [12/50], Batch [14/15], Loss: 769.4037, policy_loss: 0.0000
+Epoch [12/50], Batch [15/15], Loss: 836.6774, policy_loss: 0.0000
+Learning rate after epoch 12: 0.000762
+Epoch [13/50], Batch [1/15], Loss: 800.4627, policy_loss: 0.0000
+Epoch [13/50], Batch [2/15], Loss: 785.9139, policy_loss: 0.0000
+Epoch [13/50], Batch [3/15], Loss: 789.6656, policy_loss: 0.0000
+Epoch [13/50], Batch [4/15], Loss: 791.7778, policy_loss: 0.0000
+Epoch [13/50], Batch [5/15], Loss: 731.0948, policy_loss: 0.0000
+Epoch [13/50], Batch [6/15], Loss: 782.9034, policy_loss: 0.0000
+Epoch [13/50], Batch [7/15], Loss: 748.7296, policy_loss: 0.0000
+Epoch [13/50], Batch [8/15], Loss: 847.3544, policy_loss: 0.0000
+Epoch [13/50], Batch [9/15], Loss: 738.1111, policy_loss: 0.0000
+Epoch [13/50], Batch [10/15], Loss: 789.5645, policy_loss: 0.0000
+Epoch [13/50], Batch [11/15], Loss: 734.7507, policy_loss: 0.0000
+Epoch [13/50], Batch [12/15], Loss: 724.1588, policy_loss: 0.0000
+Epoch [13/50], Batch [13/15], Loss: 786.0048, policy_loss: 0.0000
+Epoch [13/50], Batch [14/15], Loss: 712.1233, policy_loss: 0.0000
+Epoch [13/50], Batch [15/15], Loss: 843.0517, policy_loss: 0.0000
+Learning rate after epoch 13: 0.000743
+Epoch [14/50], Batch [1/15], Loss: 836.0129, policy_loss: 0.0000
+Epoch [14/50], Batch [2/15], Loss: 794.0839, policy_loss: 0.0000
+Epoch [14/50], Batch [3/15], Loss: 705.8605, policy_loss: 0.0000
+Epoch [14/50], Batch [4/15], Loss: 750.3433, policy_loss: 0.0000
+Epoch [14/50], Batch [5/15], Loss: 789.6837, policy_loss: 0.0000
+Epoch [14/50], Batch [6/15], Loss: 722.8358, policy_loss: 0.0000
+Epoch [14/50], Batch [7/15], Loss: 742.4803, policy_loss: 0.0000
+Epoch [14/50], Batch [8/15], Loss: 741.3315, policy_loss: 0.0000
+Epoch [14/50], Batch [9/15], Loss: 745.7453, policy_loss: 0.0000
+Epoch [14/50], Batch [10/15], Loss: 693.5710, policy_loss: 0.0000
+Epoch [14/50], Batch [11/15], Loss: 657.9260, policy_loss: 0.0000
+Epoch [14/50], Batch [12/15], Loss: 731.6238, policy_loss: 0.0000
+Epoch [14/50], Batch [13/15], Loss: 720.5826, policy_loss: 0.0000
+Epoch [14/50], Batch [14/15], Loss: 746.3232, policy_loss: 0.0000
+Epoch [14/50], Batch [15/15], Loss: 778.2967, policy_loss: 0.0000
+Learning rate after epoch 14: 0.000723
+Epoch [15/50], Batch [1/15], Loss: 688.0508, policy_loss: 0.0000
+Epoch [15/50], Batch [2/15], Loss: 699.7937, policy_loss: 0.0000
+Epoch [15/50], Batch [3/15], Loss: 751.6249, policy_loss: 0.0000
+Epoch [15/50], Batch [4/15], Loss: 705.4286, policy_loss: 0.0000
+Epoch [15/50], Batch [5/15], Loss: 675.4732, policy_loss: 0.0000
+Epoch [15/50], Batch [6/15], Loss: 717.7560, policy_loss: 0.0000
+Epoch [15/50], Batch [7/15], Loss: 716.7708, policy_loss: 0.0000
+Epoch [15/50], Batch [8/15], Loss: 779.9005, policy_loss: 0.0000
+Epoch [15/50], Batch [9/15], Loss: 694.7341, policy_loss: 0.0000
+Epoch [15/50], Batch [10/15], Loss: 669.0511, policy_loss: 0.0000
+Epoch [15/50], Batch [11/15], Loss: 749.8278, policy_loss: 0.0000
+Epoch [15/50], Batch [12/15], Loss: 741.9177, policy_loss: 0.0000
+Epoch [15/50], Batch [13/15], Loss: 669.6466, policy_loss: 0.0000
+Epoch [15/50], Batch [14/15], Loss: 680.4705, policy_loss: 0.0000
+Epoch [15/50], Batch [15/15], Loss: 735.4243, policy_loss: 0.0000
+Learning rate after epoch 15: 0.000703
+Epoch [16/50], Batch [1/15], Loss: 706.5314, policy_loss: 0.0000
+Epoch [16/50], Batch [2/15], Loss: 663.3074, policy_loss: 0.0000
+Epoch [16/50], Batch [3/15], Loss: 632.5956, policy_loss: 0.0000
+Epoch [16/50], Batch [4/15], Loss: 687.3452, policy_loss: 0.0000
+Epoch [16/50], Batch [5/15], Loss: 685.5057, policy_loss: 0.0000
+Epoch [16/50], Batch [6/15], Loss: 625.1700, policy_loss: 0.0000
+Epoch [16/50], Batch [7/15], Loss: 704.0129, policy_loss: 0.0000
+Epoch [16/50], Batch [8/15], Loss: 721.5278, policy_loss: 0.0000
+Epoch [16/50], Batch [9/15], Loss: 692.0946, policy_loss: 0.0000
+Epoch [16/50], Batch [10/15], Loss: 729.1730, policy_loss: 0.0000
+Epoch [16/50], Batch [11/15], Loss: 684.4323, policy_loss: 0.0000
+Epoch [16/50], Batch [12/15], Loss: 757.9790, policy_loss: 0.0000
+Epoch [16/50], Batch [13/15], Loss: 681.4495, policy_loss: 0.0000
+Epoch [16/50], Batch [14/15], Loss: 679.9238, policy_loss: 0.0000
+Epoch [16/50], Batch [15/15], Loss: 676.0470, policy_loss: 0.0000
+Learning rate after epoch 16: 0.000683
+Epoch [17/50], Batch [1/15], Loss: 650.0076, policy_loss: 0.0000
+Epoch [17/50], Batch [2/15], Loss: 742.9476, policy_loss: 0.0000
+Epoch [17/50], Batch [3/15], Loss: 633.3358, policy_loss: 0.0000
+Epoch [17/50], Batch [4/15], Loss: 692.2846, policy_loss: 0.0000
+Epoch [17/50], Batch [5/15], Loss: 673.4668, policy_loss: 0.0000
+Epoch [17/50], Batch [6/15], Loss: 648.7237, policy_loss: 0.0000
+Epoch [17/50], Batch [7/15], Loss: 680.2604, policy_loss: 0.0000
+Epoch [17/50], Batch [8/15], Loss: 690.6048, policy_loss: 0.0000
+Epoch [17/50], Batch [9/15], Loss: 648.1752, policy_loss: 0.0000
+Epoch [17/50], Batch [10/15], Loss: 716.1050, policy_loss: 0.0000
+Epoch [17/50], Batch [11/15], Loss: 697.9628, policy_loss: 0.0000
+Epoch [17/50], Batch [12/15], Loss: 646.9473, policy_loss: 0.0000
+Epoch [17/50], Batch [13/15], Loss: 700.8845, policy_loss: 0.0000
+Epoch [17/50], Batch [14/15], Loss: 671.4351, policy_loss: 0.0000
+Epoch [17/50], Batch [15/15], Loss: 702.1244, policy_loss: 0.0000
+Learning rate after epoch 17: 0.000663
+Epoch [18/50], Batch [1/15], Loss: 654.7712, policy_loss: 0.0000
+Epoch [18/50], Batch [2/15], Loss: 640.5264, policy_loss: 0.0000
+Epoch [18/50], Batch [3/15], Loss: 674.5795, policy_loss: 0.0000
+Epoch [18/50], Batch [4/15], Loss: 670.0439, policy_loss: 0.0000
+Epoch [18/50], Batch [5/15], Loss: 645.6647, policy_loss: 0.0000
+Epoch [18/50], Batch [6/15], Loss: 614.4194, policy_loss: 0.0000
+Epoch [18/50], Batch [7/15], Loss: 676.7273, policy_loss: 0.0000
+Epoch [18/50], Batch [8/15], Loss: 720.8721, policy_loss: 0.0000
+Epoch [18/50], Batch [9/15], Loss: 642.0342, policy_loss: 0.0000
+Epoch [18/50], Batch [10/15], Loss: 668.3135, policy_loss: 0.0000
+Epoch [18/50], Batch [11/15], Loss: 669.9868, policy_loss: 0.0000
+Epoch [18/50], Batch [12/15], Loss: 680.0698, policy_loss: 0.0000
+Epoch [18/50], Batch [13/15], Loss: 648.5798, policy_loss: 0.0000
+Epoch [18/50], Batch [14/15], Loss: 628.1860, policy_loss: 0.0000
+Epoch [18/50], Batch [15/15], Loss: 723.7624, policy_loss: 0.0000
+Learning rate after epoch 18: 0.000644
+Epoch [19/50], Batch [1/15], Loss: 614.8381, policy_loss: 0.0000
+Epoch [19/50], Batch [2/15], Loss: 731.6870, policy_loss: 0.0000
+Epoch [19/50], Batch [3/15], Loss: 666.8691, policy_loss: 0.0000
+Epoch [19/50], Batch [4/15], Loss: 683.3061, policy_loss: 0.0000
+Epoch [19/50], Batch [5/15], Loss: 713.5009, policy_loss: 0.0000
+Epoch [19/50], Batch [6/15], Loss: 608.1600, policy_loss: 0.0000
+Epoch [19/50], Batch [7/15], Loss: 652.6752, policy_loss: 0.0000
+Epoch [19/50], Batch [8/15], Loss: 643.3092, policy_loss: 0.0000
+Epoch [19/50], Batch [9/15], Loss: 611.7460, policy_loss: 0.0000
+Epoch [19/50], Batch [10/15], Loss: 618.7033, policy_loss: 0.0000
+Epoch [19/50], Batch [11/15], Loss: 644.8260, policy_loss: 0.0000
+Epoch [19/50], Batch [12/15], Loss: 641.6741, policy_loss: 0.0000
+Epoch [19/50], Batch [13/15], Loss: 695.1285, policy_loss: 0.0000
+Epoch [19/50], Batch [14/15], Loss: 653.4594, policy_loss: 0.0000
+Epoch [19/50], Batch [15/15], Loss: 633.4375, policy_loss: 0.0000
+Learning rate after epoch 19: 0.000624
+Epoch [20/50], Batch [1/15], Loss: 652.2745, policy_loss: 0.0000
+Epoch [20/50], Batch [2/15], Loss: 571.7117, policy_loss: 0.0000
+Epoch [20/50], Batch [3/15], Loss: 641.3937, policy_loss: 0.0000
+Epoch [20/50], Batch [4/15], Loss: 673.2114, policy_loss: 0.0000
+Epoch [20/50], Batch [5/15], Loss: 609.6284, policy_loss: 0.0000
+Epoch [20/50], Batch [6/15], Loss: 611.6309, policy_loss: 0.0000
+Epoch [20/50], Batch [7/15], Loss: 627.2605, policy_loss: 0.0000
+Epoch [20/50], Batch [8/15], Loss: 680.0698, policy_loss: 0.0000
+Epoch [20/50], Batch [9/15], Loss: 614.6584, policy_loss: 0.0000
+Epoch [20/50], Batch [10/15], Loss: 656.8950, policy_loss: 0.0000
+Epoch [20/50], Batch [11/15], Loss: 599.7167, policy_loss: 0.0000
+Epoch [20/50], Batch [12/15], Loss: 696.1572, policy_loss: 0.0000
+Epoch [20/50], Batch [13/15], Loss: 665.6786, policy_loss: 0.0000
+Epoch [20/50], Batch [14/15], Loss: 657.2789, policy_loss: 0.0000
+Epoch [20/50], Batch [15/15], Loss: 631.1730, policy_loss: 0.0000
+Learning rate after epoch 20: 0.000604
+Epoch [21/50], Batch [1/15], Loss: 627.4679, policy_loss: 0.0000
+Epoch [21/50], Batch [2/15], Loss: 624.0835, policy_loss: 0.0000
+Epoch [21/50], Batch [3/15], Loss: 643.0697, policy_loss: 0.0000
+Epoch [21/50], Batch [4/15], Loss: 663.1836, policy_loss: 0.0000
+Epoch [21/50], Batch [5/15], Loss: 631.7778, policy_loss: 0.0000
+Epoch [21/50], Batch [6/15], Loss: 626.0493, policy_loss: 0.0000
+Epoch [21/50], Batch [7/15], Loss: 679.2510, policy_loss: 0.0000
+Epoch [21/50], Batch [8/15], Loss: 606.0488, policy_loss: 0.0000
+Epoch [21/50], Batch [9/15], Loss: 606.0703, policy_loss: 0.0000
+Epoch [21/50], Batch [10/15], Loss: 616.1143, policy_loss: 0.0000
+Epoch [21/50], Batch [11/15], Loss: 607.2043, policy_loss: 0.0000
+Epoch [21/50], Batch [12/15], Loss: 587.6714, policy_loss: 0.0000
+Epoch [21/50], Batch [13/15], Loss: 659.7347, policy_loss: 0.0000
+Epoch [21/50], Batch [14/15], Loss: 640.2606, policy_loss: 0.0000
+Epoch [21/50], Batch [15/15], Loss: 710.4576, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+[info] retrieving task 1 from suite libero_spatial, the language instruction is pick up the black bowl next to the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+avg reward 0.46935718
+Learning rate after epoch 21: 0.000584
+Epoch [22/50], Batch [1/15], Loss: 602.4703, policy_loss: 0.0000
+Epoch [22/50], Batch [2/15], Loss: 668.6987, policy_loss: 0.0000
+Epoch [22/50], Batch [3/15], Loss: 613.9162, policy_loss: 0.0000
+Epoch [22/50], Batch [4/15], Loss: 653.2181, policy_loss: 0.0000
+Epoch [22/50], Batch [5/15], Loss: 586.1256, policy_loss: 0.0000
+Epoch [22/50], Batch [6/15], Loss: 587.3067, policy_loss: 0.0000
+Epoch [22/50], Batch [7/15], Loss: 620.7015, policy_loss: 0.0000
+Epoch [22/50], Batch [8/15], Loss: 606.7855, policy_loss: 0.0000
+Epoch [22/50], Batch [9/15], Loss: 622.7786, policy_loss: 0.0000
+Epoch [22/50], Batch [10/15], Loss: 618.6002, policy_loss: 0.0000
+Epoch [22/50], Batch [11/15], Loss: 579.6005, policy_loss: 0.0000
+Epoch [22/50], Batch [12/15], Loss: 624.6525, policy_loss: 0.0000
+Epoch [22/50], Batch [13/15], Loss: 631.0845, policy_loss: 0.0000
+Epoch [22/50], Batch [14/15], Loss: 630.4667, policy_loss: 0.0000
+Epoch [22/50], Batch [15/15], Loss: 638.1288, policy_loss: 0.0000
+Learning rate after epoch 22: 0.000564
+Epoch [23/50], Batch [1/15], Loss: 567.9947, policy_loss: 0.0000
+Epoch [23/50], Batch [2/15], Loss: 559.4141, policy_loss: 0.0000
+Epoch [23/50], Batch [3/15], Loss: 621.2084, policy_loss: 0.0000
+Epoch [23/50], Batch [4/15], Loss: 638.3157, policy_loss: 0.0000
+Epoch [23/50], Batch [5/15], Loss: 615.8107, policy_loss: 0.0000
+Epoch [23/50], Batch [6/15], Loss: 623.2361, policy_loss: 0.0000
+Epoch [23/50], Batch [7/15], Loss: 588.3264, policy_loss: 0.0000
+Epoch [23/50], Batch [8/15], Loss: 583.0882, policy_loss: 0.0000
+Epoch [23/50], Batch [9/15], Loss: 647.1171, policy_loss: 0.0000
+Epoch [23/50], Batch [10/15], Loss: 641.3625, policy_loss: 0.0000
+Epoch [23/50], Batch [11/15], Loss: 600.1746, policy_loss: 0.0000
+Epoch [23/50], Batch [12/15], Loss: 619.8295, policy_loss: 0.0000
+Epoch [23/50], Batch [13/15], Loss: 593.6027, policy_loss: 0.0000
+Epoch [23/50], Batch [14/15], Loss: 655.5864, policy_loss: 0.0000
+Epoch [23/50], Batch [15/15], Loss: 627.8180, policy_loss: 0.0000
+Learning rate after epoch 23: 0.000545
+Epoch [24/50], Batch [1/15], Loss: 575.5438, policy_loss: 0.0000
+Epoch [24/50], Batch [2/15], Loss: 601.2576, policy_loss: 0.0000
+Epoch [24/50], Batch [3/15], Loss: 731.9638, policy_loss: 0.0000
+Epoch [24/50], Batch [4/15], Loss: 567.3874, policy_loss: 0.0000
+Epoch [24/50], Batch [5/15], Loss: 548.8266, policy_loss: 0.0000
+Epoch [24/50], Batch [6/15], Loss: 627.9817, policy_loss: 0.0000
+Epoch [24/50], Batch [7/15], Loss: 591.5789, policy_loss: 0.0000
+Epoch [24/50], Batch [8/15], Loss: 614.1535, policy_loss: 0.0000
+Epoch [24/50], Batch [9/15], Loss: 590.7878, policy_loss: 0.0000
+Epoch [24/50], Batch [10/15], Loss: 600.7005, policy_loss: 0.0000
+Epoch [24/50], Batch [11/15], Loss: 657.9897, policy_loss: 0.0000
+Epoch [24/50], Batch [12/15], Loss: 616.8395, policy_loss: 0.0000
+Epoch [24/50], Batch [13/15], Loss: 601.1708, policy_loss: 0.0000
+Epoch [24/50], Batch [14/15], Loss: 554.4198, policy_loss: 0.0000
+Epoch [24/50], Batch [15/15], Loss: 593.6333, policy_loss: 0.0000
+Learning rate after epoch 24: 0.000525
+Epoch [25/50], Batch [1/15], Loss: 557.3830, policy_loss: 0.0000
+Epoch [25/50], Batch [2/15], Loss: 634.3397, policy_loss: 0.0000
+Epoch [25/50], Batch [3/15], Loss: 600.4477, policy_loss: 0.0000
+Epoch [25/50], Batch [4/15], Loss: 594.7482, policy_loss: 0.0000
+Epoch [25/50], Batch [5/15], Loss: 579.0481, policy_loss: 0.0000
+Epoch [25/50], Batch [6/15], Loss: 630.0966, policy_loss: 0.0000
+Epoch [25/50], Batch [7/15], Loss: 591.3636, policy_loss: 0.0000
+Epoch [25/50], Batch [8/15], Loss: 614.7744, policy_loss: 0.0000
+Epoch [25/50], Batch [9/15], Loss: 613.1035, policy_loss: 0.0000
+Epoch [25/50], Batch [10/15], Loss: 616.5448, policy_loss: 0.0000
+Epoch [25/50], Batch [11/15], Loss: 617.1604, policy_loss: 0.0000
+Epoch [25/50], Batch [12/15], Loss: 615.7358, policy_loss: 0.0000
+Epoch [25/50], Batch [13/15], Loss: 567.2264, policy_loss: 0.0000
+Epoch [25/50], Batch [14/15], Loss: 574.9825, policy_loss: 0.0000
+Epoch [25/50], Batch [15/15], Loss: 503.5142, policy_loss: 0.0000
+Learning rate after epoch 25: 0.000505
+Epoch [26/50], Batch [1/15], Loss: 571.1049, policy_loss: 0.0000
+Epoch [26/50], Batch [2/15], Loss: 653.5015, policy_loss: 0.0000
+Epoch [26/50], Batch [3/15], Loss: 567.5911, policy_loss: 0.0000
+Epoch [26/50], Batch [4/15], Loss: 630.8627, policy_loss: 0.0000
+Epoch [26/50], Batch [5/15], Loss: 619.5552, policy_loss: 0.0000
+Epoch [26/50], Batch [6/15], Loss: 558.3900, policy_loss: 0.0000
+Epoch [26/50], Batch [7/15], Loss: 598.3268, policy_loss: 0.0000
+Epoch [26/50], Batch [8/15], Loss: 602.1339, policy_loss: 0.0000
+Epoch [26/50], Batch [9/15], Loss: 558.8632, policy_loss: 0.0000
+Epoch [26/50], Batch [10/15], Loss: 568.1525, policy_loss: 0.0000
+Epoch [26/50], Batch [11/15], Loss: 562.6589, policy_loss: 0.0000
+Epoch [26/50], Batch [12/15], Loss: 604.5294, policy_loss: 0.0000
+Epoch [26/50], Batch [13/15], Loss: 610.2071, policy_loss: 0.0000
+Epoch [26/50], Batch [14/15], Loss: 561.5285, policy_loss: 0.0000
+Epoch [26/50], Batch [15/15], Loss: 552.5781, policy_loss: 0.0000
+Learning rate after epoch 26: 0.000485
+Epoch [27/50], Batch [1/15], Loss: 567.3557, policy_loss: 0.0000
+Epoch [27/50], Batch [2/15], Loss: 513.6560, policy_loss: 0.0000
+Epoch [27/50], Batch [3/15], Loss: 653.2440, policy_loss: 0.0000
+Epoch [27/50], Batch [4/15], Loss: 545.3464, policy_loss: 0.0000
+Epoch [27/50], Batch [5/15], Loss: 583.2152, policy_loss: 0.0000
+Epoch [27/50], Batch [6/15], Loss: 646.3848, policy_loss: 0.0000
+Epoch [27/50], Batch [7/15], Loss: 595.1556, policy_loss: 0.0000
+Epoch [27/50], Batch [8/15], Loss: 584.1113, policy_loss: 0.0000
+Epoch [27/50], Batch [9/15], Loss: 550.9448, policy_loss: 0.0000
+Epoch [27/50], Batch [10/15], Loss: 609.4597, policy_loss: 0.0000
+Epoch [27/50], Batch [11/15], Loss: 589.1284, policy_loss: 0.0000
+Epoch [27/50], Batch [12/15], Loss: 577.9136, policy_loss: 0.0000
+Epoch [27/50], Batch [13/15], Loss: 630.4760, policy_loss: 0.0000
+Epoch [27/50], Batch [14/15], Loss: 596.9797, policy_loss: 0.0000
+Epoch [27/50], Batch [15/15], Loss: 444.6008, policy_loss: 0.0000
+Learning rate after epoch 27: 0.000465
+Epoch [28/50], Batch [1/15], Loss: 559.8220, policy_loss: 0.0000
+Epoch [28/50], Batch [2/15], Loss: 583.9916, policy_loss: 0.0000
+Epoch [28/50], Batch [3/15], Loss: 539.5228, policy_loss: 0.0000
+Epoch [28/50], Batch [4/15], Loss: 639.8185, policy_loss: 0.0000
+Epoch [28/50], Batch [5/15], Loss: 576.8038, policy_loss: 0.0000
+Epoch [28/50], Batch [6/15], Loss: 595.8785, policy_loss: 0.0000
+Epoch [28/50], Batch [7/15], Loss: 538.4197, policy_loss: 0.0000
+Epoch [28/50], Batch [8/15], Loss: 561.8966, policy_loss: 0.0000
+Epoch [28/50], Batch [9/15], Loss: 550.4006, policy_loss: 0.0000
+Epoch [28/50], Batch [10/15], Loss: 621.7028, policy_loss: 0.0000
+Epoch [28/50], Batch [11/15], Loss: 554.4550, policy_loss: 0.0000
+Epoch [28/50], Batch [12/15], Loss: 559.7844, policy_loss: 0.0000
+Epoch [28/50], Batch [13/15], Loss: 582.7964, policy_loss: 0.0000
+Epoch [28/50], Batch [14/15], Loss: 542.9912, policy_loss: 0.0000
+Epoch [28/50], Batch [15/15], Loss: 616.2581, policy_loss: 0.0000
+Learning rate after epoch 28: 0.000446
+Epoch [29/50], Batch [1/15], Loss: 532.2579, policy_loss: 0.0000
+Epoch [29/50], Batch [2/15], Loss: 567.4851, policy_loss: 0.0000
+Epoch [29/50], Batch [3/15], Loss: 615.9747, policy_loss: 0.0000
+Epoch [29/50], Batch [4/15], Loss: 588.1790, policy_loss: 0.0000
+Epoch [29/50], Batch [5/15], Loss: 584.4791, policy_loss: 0.0000
+Epoch [29/50], Batch [6/15], Loss: 584.9683, policy_loss: 0.0000
+Epoch [29/50], Batch [7/15], Loss: 557.1490, policy_loss: 0.0000
+Epoch [29/50], Batch [8/15], Loss: 537.2000, policy_loss: 0.0000
+Epoch [29/50], Batch [9/15], Loss: 533.2318, policy_loss: 0.0000
+Epoch [29/50], Batch [10/15], Loss: 604.9741, policy_loss: 0.0000
+Epoch [29/50], Batch [11/15], Loss: 623.6008, policy_loss: 0.0000
+Epoch [29/50], Batch [12/15], Loss: 580.0997, policy_loss: 0.0000
+Epoch [29/50], Batch [13/15], Loss: 651.0494, policy_loss: 0.0000
+Epoch [29/50], Batch [14/15], Loss: 597.8691, policy_loss: 0.0000
+Epoch [29/50], Batch [15/15], Loss: 522.9725, policy_loss: 0.0000
+Learning rate after epoch 29: 0.000426
+Epoch [30/50], Batch [1/15], Loss: 534.8588, policy_loss: 0.0000
+Epoch [30/50], Batch [2/15], Loss: 626.9597, policy_loss: 0.0000
+Epoch [30/50], Batch [3/15], Loss: 541.4177, policy_loss: 0.0000
+Epoch [30/50], Batch [4/15], Loss: 554.9446, policy_loss: 0.0000
+Epoch [30/50], Batch [5/15], Loss: 597.2459, policy_loss: 0.0000
+Epoch [30/50], Batch [6/15], Loss: 608.6953, policy_loss: 0.0000
+Epoch [30/50], Batch [7/15], Loss: 597.7990, policy_loss: 0.0000
+Epoch [30/50], Batch [8/15], Loss: 625.1683, policy_loss: 0.0000
+Epoch [30/50], Batch [9/15], Loss: 575.1439, policy_loss: 0.0000
+Epoch [30/50], Batch [10/15], Loss: 588.9088, policy_loss: 0.0000
+Epoch [30/50], Batch [11/15], Loss: 538.7984, policy_loss: 0.0000
+Epoch [30/50], Batch [12/15], Loss: 547.1132, policy_loss: 0.0000
+Epoch [30/50], Batch [13/15], Loss: 568.9647, policy_loss: 0.0000
+Epoch [30/50], Batch [14/15], Loss: 644.3892, policy_loss: 0.0000
+Epoch [30/50], Batch [15/15], Loss: 621.4361, policy_loss: 0.0000
+Learning rate after epoch 30: 0.000406
+Epoch [31/50], Batch [1/15], Loss: 533.8214, policy_loss: 0.0000
+Epoch [31/50], Batch [2/15], Loss: 661.4611, policy_loss: 0.0000
+Epoch [31/50], Batch [3/15], Loss: 572.6832, policy_loss: 0.0000
+Epoch [31/50], Batch [4/15], Loss: 547.7740, policy_loss: 0.0000
+Epoch [31/50], Batch [5/15], Loss: 535.9706, policy_loss: 0.0000
+Epoch [31/50], Batch [6/15], Loss: 551.8525, policy_loss: 0.0000
+Epoch [31/50], Batch [7/15], Loss: 561.8733, policy_loss: 0.0000
+Epoch [31/50], Batch [8/15], Loss: 606.1763, policy_loss: 0.0000
+Epoch [31/50], Batch [9/15], Loss: 630.2252, policy_loss: 0.0000
+Epoch [31/50], Batch [10/15], Loss: 538.1296, policy_loss: 0.0000
+Epoch [31/50], Batch [11/15], Loss: 531.7647, policy_loss: 0.0000
+Epoch [31/50], Batch [12/15], Loss: 598.6303, policy_loss: 0.0000
+Epoch [31/50], Batch [13/15], Loss: 507.5747, policy_loss: 0.0000
+Epoch [31/50], Batch [14/15], Loss: 542.2305, policy_loss: 0.0000
+Epoch [31/50], Batch [15/15], Loss: 557.2583, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+[info] retrieving task 1 from suite libero_spatial, the language instruction is pick up the black bowl next to the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+avg reward 0.49121605
+Learning rate after epoch 31: 0.000386
+Epoch [32/50], Batch [1/15], Loss: 608.3893, policy_loss: 0.0000
+Epoch [32/50], Batch [2/15], Loss: 598.1909, policy_loss: 0.0000
+Epoch [32/50], Batch [3/15], Loss: 550.8095, policy_loss: 0.0000
+Epoch [32/50], Batch [4/15], Loss: 581.5978, policy_loss: 0.0000
+Epoch [32/50], Batch [5/15], Loss: 564.8441, policy_loss: 0.0000
+Epoch [32/50], Batch [6/15], Loss: 527.2205, policy_loss: 0.0000
+Epoch [32/50], Batch [7/15], Loss: 549.2968, policy_loss: 0.0000
+Epoch [32/50], Batch [8/15], Loss: 557.0872, policy_loss: 0.0000
+Epoch [32/50], Batch [9/15], Loss: 542.4645, policy_loss: 0.0000
+Epoch [32/50], Batch [10/15], Loss: 488.0186, policy_loss: 0.0000
+Epoch [32/50], Batch [11/15], Loss: 594.7083, policy_loss: 0.0000
+Epoch [32/50], Batch [12/15], Loss: 591.0718, policy_loss: 0.0000
+Epoch [32/50], Batch [13/15], Loss: 544.6003, policy_loss: 0.0000
+Epoch [32/50], Batch [14/15], Loss: 589.3147, policy_loss: 0.0000
+Epoch [32/50], Batch [15/15], Loss: 544.0060, policy_loss: 0.0000
+Learning rate after epoch 32: 0.000366
+Epoch [33/50], Batch [1/15], Loss: 540.3187, policy_loss: 0.0000
+Epoch [33/50], Batch [2/15], Loss: 608.8840, policy_loss: 0.0000
+Epoch [33/50], Batch [3/15], Loss: 516.3511, policy_loss: 0.0000
+Epoch [33/50], Batch [4/15], Loss: 558.3432, policy_loss: 0.0000
+Epoch [33/50], Batch [5/15], Loss: 539.1968, policy_loss: 0.0000
+Epoch [33/50], Batch [6/15], Loss: 555.9377, policy_loss: 0.0000
+Epoch [33/50], Batch [7/15], Loss: 583.5049, policy_loss: 0.0000
+Epoch [33/50], Batch [8/15], Loss: 597.0557, policy_loss: 0.0000
+Epoch [33/50], Batch [9/15], Loss: 565.0234, policy_loss: 0.0000
+Epoch [33/50], Batch [10/15], Loss: 553.7369, policy_loss: 0.0000
+Epoch [33/50], Batch [11/15], Loss: 569.3473, policy_loss: 0.0000
+Epoch [33/50], Batch [12/15], Loss: 565.9343, policy_loss: 0.0000
+Epoch [33/50], Batch [13/15], Loss: 599.1198, policy_loss: 0.0000
+Epoch [33/50], Batch [14/15], Loss: 527.3693, policy_loss: 0.0000
+Epoch [33/50], Batch [15/15], Loss: 610.2904, policy_loss: 0.0000
+Learning rate after epoch 33: 0.000347
+Epoch [34/50], Batch [1/15], Loss: 556.8516, policy_loss: 0.0000
+Epoch [34/50], Batch [2/15], Loss: 542.2538, policy_loss: 0.0000
+Epoch [34/50], Batch [3/15], Loss: 523.4376, policy_loss: 0.0000
+Epoch [34/50], Batch [4/15], Loss: 551.6180, policy_loss: 0.0000
+Epoch [34/50], Batch [5/15], Loss: 561.6904, policy_loss: 0.0000
+Epoch [34/50], Batch [6/15], Loss: 564.3546, policy_loss: 0.0000
+Epoch [34/50], Batch [7/15], Loss: 499.7245, policy_loss: 0.0000
+Epoch [34/50], Batch [8/15], Loss: 563.1802, policy_loss: 0.0000
+Epoch [34/50], Batch [9/15], Loss: 579.7723, policy_loss: 0.0000
+Epoch [34/50], Batch [10/15], Loss: 503.9482, policy_loss: 0.0000
+Epoch [34/50], Batch [11/15], Loss: 583.9946, policy_loss: 0.0000
+Epoch [34/50], Batch [12/15], Loss: 575.2419, policy_loss: 0.0000
+Epoch [34/50], Batch [13/15], Loss: 536.9106, policy_loss: 0.0000
+Epoch [34/50], Batch [14/15], Loss: 580.4562, policy_loss: 0.0000
+Epoch [34/50], Batch [15/15], Loss: 574.4695, policy_loss: 0.0000
+Learning rate after epoch 34: 0.000327
+Epoch [35/50], Batch [1/15], Loss: 561.2419, policy_loss: 0.0000
+Epoch [35/50], Batch [2/15], Loss: 564.9525, policy_loss: 0.0000
+Epoch [35/50], Batch [3/15], Loss: 593.2378, policy_loss: 0.0000
+Epoch [35/50], Batch [4/15], Loss: 640.6432, policy_loss: 0.0000
+Epoch [35/50], Batch [5/15], Loss: 515.5479, policy_loss: 0.0000
+Epoch [35/50], Batch [6/15], Loss: 551.8184, policy_loss: 0.0000
+Epoch [35/50], Batch [7/15], Loss: 523.3394, policy_loss: 0.0000
+Epoch [35/50], Batch [8/15], Loss: 504.2033, policy_loss: 0.0000
+Epoch [35/50], Batch [9/15], Loss: 593.3325, policy_loss: 0.0000
+Epoch [35/50], Batch [10/15], Loss: 576.9828, policy_loss: 0.0000
+Epoch [35/50], Batch [11/15], Loss: 589.2737, policy_loss: 0.0000
+Epoch [35/50], Batch [12/15], Loss: 543.2591, policy_loss: 0.0000
+Epoch [35/50], Batch [13/15], Loss: 622.3232, policy_loss: 0.0000
+Epoch [35/50], Batch [14/15], Loss: 531.1341, policy_loss: 0.0000
+Epoch [35/50], Batch [15/15], Loss: 561.8550, policy_loss: 0.0000
+Learning rate after epoch 35: 0.000307
+Epoch [36/50], Batch [1/15], Loss: 600.5492, policy_loss: 0.0000
+Epoch [36/50], Batch [2/15], Loss: 497.3441, policy_loss: 0.0000
+Epoch [36/50], Batch [3/15], Loss: 578.3044, policy_loss: 0.0000
+Epoch [36/50], Batch [4/15], Loss: 522.4551, policy_loss: 0.0000
+Epoch [36/50], Batch [5/15], Loss: 524.4031, policy_loss: 0.0000
+Epoch [36/50], Batch [6/15], Loss: 574.9657, policy_loss: 0.0000
+Epoch [36/50], Batch [7/15], Loss: 554.9866, policy_loss: 0.0000
+Epoch [36/50], Batch [8/15], Loss: 556.0342, policy_loss: 0.0000
+Epoch [36/50], Batch [9/15], Loss: 514.6275, policy_loss: 0.0000
+Epoch [36/50], Batch [10/15], Loss: 510.3117, policy_loss: 0.0000
+Epoch [36/50], Batch [11/15], Loss: 550.0843, policy_loss: 0.0000
+Epoch [36/50], Batch [12/15], Loss: 551.0876, policy_loss: 0.0000
+Epoch [36/50], Batch [13/15], Loss: 571.9302, policy_loss: 0.0000
+Epoch [36/50], Batch [14/15], Loss: 578.8904, policy_loss: 0.0000
+Epoch [36/50], Batch [15/15], Loss: 605.2637, policy_loss: 0.0000
+Learning rate after epoch 36: 0.000287
+Epoch [37/50], Batch [1/15], Loss: 561.7086, policy_loss: 0.0000
+Epoch [37/50], Batch [2/15], Loss: 547.9214, policy_loss: 0.0000
+Epoch [37/50], Batch [3/15], Loss: 536.2974, policy_loss: 0.0000
+Epoch [37/50], Batch [4/15], Loss: 620.2217, policy_loss: 0.0000
+Epoch [37/50], Batch [5/15], Loss: 551.2874, policy_loss: 0.0000
+Epoch [37/50], Batch [6/15], Loss: 555.1876, policy_loss: 0.0000
+Epoch [37/50], Batch [7/15], Loss: 580.2043, policy_loss: 0.0000
+Epoch [37/50], Batch [8/15], Loss: 527.4645, policy_loss: 0.0000
+Epoch [37/50], Batch [9/15], Loss: 559.7355, policy_loss: 0.0000
+Epoch [37/50], Batch [10/15], Loss: 614.1078, policy_loss: 0.0000
+Epoch [37/50], Batch [11/15], Loss: 556.2185, policy_loss: 0.0000
+Epoch [37/50], Batch [12/15], Loss: 540.1753, policy_loss: 0.0000
+Epoch [37/50], Batch [13/15], Loss: 523.8802, policy_loss: 0.0000
+Epoch [37/50], Batch [14/15], Loss: 547.4064, policy_loss: 0.0000
+Epoch [37/50], Batch [15/15], Loss: 545.9370, policy_loss: 0.0000
+Learning rate after epoch 37: 0.000267
+Epoch [38/50], Batch [1/15], Loss: 641.6433, policy_loss: 0.0000
+Epoch [38/50], Batch [2/15], Loss: 475.5208, policy_loss: 0.0000
+Epoch [38/50], Batch [3/15], Loss: 574.9477, policy_loss: 0.0000
+Epoch [38/50], Batch [4/15], Loss: 599.3697, policy_loss: 0.0000
+Epoch [38/50], Batch [5/15], Loss: 579.7745, policy_loss: 0.0000
+Epoch [38/50], Batch [6/15], Loss: 565.2613, policy_loss: 0.0000
+Epoch [38/50], Batch [7/15], Loss: 539.4188, policy_loss: 0.0000
+Epoch [38/50], Batch [8/15], Loss: 526.3665, policy_loss: 0.0000
+Epoch [38/50], Batch [9/15], Loss: 485.5294, policy_loss: 0.0000
+Epoch [38/50], Batch [10/15], Loss: 534.5045, policy_loss: 0.0000
+Epoch [38/50], Batch [11/15], Loss: 548.7494, policy_loss: 0.0000
+Epoch [38/50], Batch [12/15], Loss: 540.9231, policy_loss: 0.0000
+Epoch [38/50], Batch [13/15], Loss: 547.6257, policy_loss: 0.0000
+Epoch [38/50], Batch [14/15], Loss: 580.9691, policy_loss: 0.0000
+Epoch [38/50], Batch [15/15], Loss: 565.0917, policy_loss: 0.0000
+Learning rate after epoch 38: 0.000248
+Epoch [39/50], Batch [1/15], Loss: 585.5747, policy_loss: 0.0000
+Epoch [39/50], Batch [2/15], Loss: 577.6282, policy_loss: 0.0000
+Epoch [39/50], Batch [3/15], Loss: 540.6470, policy_loss: 0.0000
+Epoch [39/50], Batch [4/15], Loss: 565.3016, policy_loss: 0.0000
+Epoch [39/50], Batch [5/15], Loss: 551.2261, policy_loss: 0.0000
+Epoch [39/50], Batch [6/15], Loss: 547.4475, policy_loss: 0.0000
+Epoch [39/50], Batch [7/15], Loss: 573.4063, policy_loss: 0.0000
+Epoch [39/50], Batch [8/15], Loss: 560.9706, policy_loss: 0.0000
+Epoch [39/50], Batch [9/15], Loss: 511.5905, policy_loss: 0.0000
+Epoch [39/50], Batch [10/15], Loss: 600.9919, policy_loss: 0.0000
+Epoch [39/50], Batch [11/15], Loss: 537.2247, policy_loss: 0.0000
+Epoch [39/50], Batch [12/15], Loss: 534.7625, policy_loss: 0.0000
+Epoch [39/50], Batch [13/15], Loss: 596.0682, policy_loss: 0.0000
+Epoch [39/50], Batch [14/15], Loss: 531.5795, policy_loss: 0.0000
+Epoch [39/50], Batch [15/15], Loss: 620.3047, policy_loss: 0.0000
+Learning rate after epoch 39: 0.000228
+Epoch [40/50], Batch [1/15], Loss: 521.8373, policy_loss: 0.0000
+Epoch [40/50], Batch [2/15], Loss: 511.3885, policy_loss: 0.0000
+Epoch [40/50], Batch [3/15], Loss: 544.2404, policy_loss: 0.0000
+Epoch [40/50], Batch [4/15], Loss: 520.7610, policy_loss: 0.0000
+Epoch [40/50], Batch [5/15], Loss: 582.9719, policy_loss: 0.0000
+Epoch [40/50], Batch [6/15], Loss: 567.0345, policy_loss: 0.0000
+Epoch [40/50], Batch [7/15], Loss: 493.1871, policy_loss: 0.0000
+Epoch [40/50], Batch [8/15], Loss: 554.3766, policy_loss: 0.0000
+Epoch [40/50], Batch [9/15], Loss: 556.6825, policy_loss: 0.0000
+Epoch [40/50], Batch [10/15], Loss: 556.3812, policy_loss: 0.0000
+Epoch [40/50], Batch [11/15], Loss: 539.9301, policy_loss: 0.0000
+Epoch [40/50], Batch [12/15], Loss: 604.1699, policy_loss: 0.0000
+Epoch [40/50], Batch [13/15], Loss: 553.4094, policy_loss: 0.0000
+Epoch [40/50], Batch [14/15], Loss: 529.8687, policy_loss: 0.0000
+Epoch [40/50], Batch [15/15], Loss: 584.8881, policy_loss: 0.0000
+Learning rate after epoch 40: 0.000208
+Epoch [41/50], Batch [1/15], Loss: 523.2883, policy_loss: 0.0000
+Epoch [41/50], Batch [2/15], Loss: 562.7711, policy_loss: 0.0000
+Epoch [41/50], Batch [3/15], Loss: 585.1290, policy_loss: 0.0000
+Epoch [41/50], Batch [4/15], Loss: 509.5565, policy_loss: 0.0000
+Epoch [41/50], Batch [5/15], Loss: 619.9222, policy_loss: 0.0000
+Epoch [41/50], Batch [6/15], Loss: 560.1633, policy_loss: 0.0000
+Epoch [41/50], Batch [7/15], Loss: 582.4388, policy_loss: 0.0000
+Epoch [41/50], Batch [8/15], Loss: 513.8893, policy_loss: 0.0000
+Epoch [41/50], Batch [9/15], Loss: 496.1655, policy_loss: 0.0000
+Epoch [41/50], Batch [10/15], Loss: 595.6592, policy_loss: 0.0000
+Epoch [41/50], Batch [11/15], Loss: 549.8646, policy_loss: 0.0000
+Epoch [41/50], Batch [12/15], Loss: 549.1924, policy_loss: 0.0000
+Epoch [41/50], Batch [13/15], Loss: 540.4946, policy_loss: 0.0000
+Epoch [41/50], Batch [14/15], Loss: 511.5926, policy_loss: 0.0000
+Epoch [41/50], Batch [15/15], Loss: 534.7256, policy_loss: 0.0000
+[info] Starting evaluation on LIBERO tasks...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[info] retrieving task 0 from suite libero_spatial, the language instruction is pick up the black bowl between the plate and the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+[info] retrieving task 1 from suite libero_spatial, the language instruction is pick up the black bowl next to the ramekin and place it on the plate, and the bddl file is /opt/LIBERO/libero/libero/./bddl_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl
+[Warning]: datasets path /opt/LIBERO/libero/libero/../datasets does not exist!
+Using default initial states for task: pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate
+Using first observation as goal image
+avg reward 0.48649861
+Learning rate after epoch 41: 0.000188
+Epoch [42/50], Batch [1/15], Loss: 581.9445, policy_loss: 0.0000
+Epoch [42/50], Batch [2/15], Loss: 523.2429, policy_loss: 0.0000
+Epoch [42/50], Batch [3/15], Loss: 604.8602, policy_loss: 0.0000
+Epoch [42/50], Batch [4/15], Loss: 533.4258, policy_loss: 0.0000
+Epoch [42/50], Batch [5/15], Loss: 538.4197, policy_loss: 0.0000
+Epoch [42/50], Batch [6/15], Loss: 548.5383, policy_loss: 0.0000
+Epoch [42/50], Batch [7/15], Loss: 500.4760, policy_loss: 0.0000
+Epoch [42/50], Batch [8/15], Loss: 571.7630, policy_loss: 0.0000
+Epoch [42/50], Batch [9/15], Loss: 527.8533, policy_loss: 0.0000
+Epoch [42/50], Batch [10/15], Loss: 540.9341, policy_loss: 0.0000
+Epoch [42/50], Batch [11/15], Loss: 531.9571, policy_loss: 0.0000
+Epoch [42/50], Batch [12/15], Loss: 584.3360, policy_loss: 0.0000
+Epoch [42/50], Batch [13/15], Loss: 552.3970, policy_loss: 0.0000
+Epoch [42/50], Batch [14/15], Loss: 543.6531, policy_loss: 0.0000
+Epoch [42/50], Batch [15/15], Loss: 646.1814, policy_loss: 0.0000
+Learning rate after epoch 42: 0.000168
+Epoch [43/50], Batch [1/15], Loss: 494.9842, policy_loss: 0.0000
+Epoch [43/50], Batch [2/15], Loss: 583.7115, policy_loss: 0.0000
+Epoch [43/50], Batch [3/15], Loss: 536.5392, policy_loss: 0.0000
+Epoch [43/50], Batch [4/15], Loss: 533.3265, policy_loss: 0.0000
+Epoch [43/50], Batch [5/15], Loss: 511.1145, policy_loss: 0.0000
+Epoch [43/50], Batch [6/15], Loss: 530.5520, policy_loss: 0.0000
+Epoch [43/50], Batch [7/15], Loss: 497.1193, policy_loss: 0.0000
+Epoch [43/50], Batch [8/15], Loss: 554.0052, policy_loss: 0.0000
+Epoch [43/50], Batch [9/15], Loss: 585.6203, policy_loss: 0.0000
+Epoch [43/50], Batch [10/15], Loss: 563.4146, policy_loss: 0.0000
+Epoch [43/50], Batch [11/15], Loss: 540.2676, policy_loss: 0.0000
+Epoch [43/50], Batch [12/15], Loss: 651.0443, policy_loss: 0.0000
+Epoch [43/50], Batch [13/15], Loss: 517.9833, policy_loss: 0.0000
+Epoch [43/50], Batch [14/15], Loss: 603.1360, policy_loss: 0.0000
+Epoch [43/50], Batch [15/15], Loss: 668.6264, policy_loss: 0.0000
+Learning rate after epoch 43: 0.000149
+Epoch [44/50], Batch [1/15], Loss: 580.5351, policy_loss: 0.0000
+Epoch [44/50], Batch [2/15], Loss: 573.9485, policy_loss: 0.0000
+Epoch [44/50], Batch [3/15], Loss: 551.5881, policy_loss: 0.0000
+Epoch [44/50], Batch [4/15], Loss: 619.2598, policy_loss: 0.0000
+Epoch [44/50], Batch [5/15], Loss: 507.2692, policy_loss: 0.0000
+Epoch [44/50], Batch [6/15], Loss: 610.8296, policy_loss: 0.0000
+Epoch [44/50], Batch [7/15], Loss: 528.6182, policy_loss: 0.0000
+Epoch [44/50], Batch [8/15], Loss: 531.9503, policy_loss: 0.0000
+Epoch [44/50], Batch [9/15], Loss: 492.7652, policy_loss: 0.0000
+Epoch [44/50], Batch [10/15], Loss: 524.5375, policy_loss: 0.0000
+Epoch [44/50], Batch [11/15], Loss: 511.4778, policy_loss: 0.0000
+Epoch [44/50], Batch [12/15], Loss: 562.5710, policy_loss: 0.0000
+Epoch [44/50], Batch [13/15], Loss: 559.8079, policy_loss: 0.0000
+Epoch [44/50], Batch [14/15], Loss: 500.1271, policy_loss: 0.0000
+Epoch [44/50], Batch [15/15], Loss: 487.5636, policy_loss: 0.0000
+Learning rate after epoch 44: 0.000129
+Epoch [45/50], Batch [1/15], Loss: 495.3841, policy_loss: 0.0000
+Epoch [45/50], Batch [2/15], Loss: 544.2869, policy_loss: 0.0000
+Epoch [45/50], Batch [3/15], Loss: 558.9639, policy_loss: 0.0000
+Epoch [45/50], Batch [4/15], Loss: 552.4153, policy_loss: 0.0000
+Epoch [45/50], Batch [5/15], Loss: 532.8000, policy_loss: 0.0000
+Epoch [45/50], Batch [6/15], Loss: 537.1546, policy_loss: 0.0000
+Epoch [45/50], Batch [7/15], Loss: 571.4317, policy_loss: 0.0000
+Epoch [45/50], Batch [8/15], Loss: 504.7943, policy_loss: 0.0000
+Epoch [45/50], Batch [9/15], Loss: 521.3831, policy_loss: 0.0000
+Epoch [45/50], Batch [10/15], Loss: 572.1368, policy_loss: 0.0000
+Epoch [45/50], Batch [11/15], Loss: 482.9981, policy_loss: 0.0000
+Epoch [45/50], Batch [12/15], Loss: 521.3967, policy_loss: 0.0000
+Epoch [45/50], Batch [13/15], Loss: 612.9291, policy_loss: 0.0000
+Epoch [45/50], Batch [14/15], Loss: 498.7923, policy_loss: 0.0000
+Epoch [45/50], Batch [15/15], Loss: 486.0427, policy_loss: 0.0000
+Learning rate after epoch 45: 0.000109
+Epoch [46/50], Batch [1/15], Loss: 538.5803, policy_loss: 0.0000
+Epoch [46/50], Batch [2/15], Loss: 543.2698, policy_loss: 0.0000
+Epoch [46/50], Batch [3/15], Loss: 604.0652, policy_loss: 0.0000
+Epoch [46/50], Batch [4/15], Loss: 495.9498, policy_loss: 0.0000
+Epoch [46/50], Batch [5/15], Loss: 506.7946, policy_loss: 0.0000
+Epoch [46/50], Batch [6/15], Loss: 511.9171, policy_loss: 0.0000
+Epoch [46/50], Batch [7/15], Loss: 554.6419, policy_loss: 0.0000
+Epoch [46/50], Batch [8/15], Loss: 561.6725, policy_loss: 0.0000
+Epoch [46/50], Batch [9/15], Loss: 577.3735, policy_loss: 0.0000
+Epoch [46/50], Batch [10/15], Loss: 513.9490, policy_loss: 0.0000
+Epoch [46/50], Batch [11/15], Loss: 599.8417, policy_loss: 0.0000
+Epoch [46/50], Batch [12/15], Loss: 559.4031, policy_loss: 0.0000
+Epoch [46/50], Batch [13/15], Loss: 563.1838, policy_loss: 0.0000
+Epoch [46/50], Batch [14/15], Loss: 556.2446, policy_loss: 0.0000
+Epoch [46/50], Batch [15/15], Loss: 537.9260, policy_loss: 0.0000
+Learning rate after epoch 46: 0.000089
+Epoch [47/50], Batch [1/15], Loss: 528.6553, policy_loss: 0.0000
+Epoch [47/50], Batch [2/15], Loss: 518.1288, policy_loss: 0.0000
+Epoch [47/50], Batch [3/15], Loss: 568.6660, policy_loss: 0.0000
+Epoch [47/50], Batch [4/15], Loss: 535.4387, policy_loss: 0.0000
+Epoch [47/50], Batch [5/15], Loss: 544.1561, policy_loss: 0.0000
+Epoch [47/50], Batch [6/15], Loss: 548.2084, policy_loss: 0.0000
+Epoch [47/50], Batch [7/15], Loss: 531.1345, policy_loss: 0.0000
+Epoch [47/50], Batch [8/15], Loss: 602.5859, policy_loss: 0.0000
+Epoch [47/50], Batch [9/15], Loss: 556.8149, policy_loss: 0.0000
+Epoch [47/50], Batch [10/15], Loss: 509.0486, policy_loss: 0.0000
+Epoch [47/50], Batch [11/15], Loss: 526.5477, policy_loss: 0.0000
+Epoch [47/50], Batch [12/15], Loss: 585.0809, policy_loss: 0.0000
+Epoch [47/50], Batch [13/15], Loss: 485.5251, policy_loss: 0.0000
+Epoch [47/50], Batch [14/15], Loss: 525.9073, policy_loss: 0.0000
+Epoch [47/50], Batch [15/15], Loss: 504.7419, policy_loss: 0.0000
+Learning rate after epoch 47: 0.000069
+Epoch [48/50], Batch [1/15], Loss: 576.3103, policy_loss: 0.0000
+Epoch [48/50], Batch [2/15], Loss: 532.0662, policy_loss: 0.0000
+Epoch [48/50], Batch [3/15], Loss: 529.2074, policy_loss: 0.0000
+Epoch [48/50], Batch [4/15], Loss: 531.3467, policy_loss: 0.0000
+Epoch [48/50], Batch [5/15], Loss: 590.8403, policy_loss: 0.0000
+Epoch [48/50], Batch [6/15], Loss: 547.6017, policy_loss: 0.0000
+Epoch [48/50], Batch [7/15], Loss: 553.0398, policy_loss: 0.0000
+Epoch [48/50], Batch [8/15], Loss: 538.1010, policy_loss: 0.0000
+Epoch [48/50], Batch [9/15], Loss: 515.0642, policy_loss: 0.0000
+Epoch [48/50], Batch [10/15], Loss: 569.2812, policy_loss: 0.0000
+Epoch [48/50], Batch [11/15], Loss: 479.7634, policy_loss: 0.0000
+Epoch [48/50], Batch [12/15], Loss: 626.4299, policy_loss: 0.0000
+Epoch [48/50], Batch [13/15], Loss: 544.5508, policy_loss: 0.0000
+Epoch [48/50], Batch [14/15], Loss: 534.1499, policy_loss: 0.0000
+Epoch [48/50], Batch [15/15], Loss: 514.9128, policy_loss: 0.0000
+Learning rate after epoch 48: 0.000050
+Epoch [49/50], Batch [1/15], Loss: 525.1308, policy_loss: 0.0000
+Epoch [49/50], Batch [2/15], Loss: 533.2896, policy_loss: 0.0000
+Epoch [49/50], Batch [3/15], Loss: 542.8130, policy_loss: 0.0000
+Epoch [49/50], Batch [4/15], Loss: 490.6145, policy_loss: 0.0000
+Epoch [49/50], Batch [5/15], Loss: 518.5256, policy_loss: 0.0000
+Epoch [49/50], Batch [6/15], Loss: 484.8894, policy_loss: 0.0000
+Epoch [49/50], Batch [7/15], Loss: 532.4107, policy_loss: 0.0000
+Epoch [49/50], Batch [8/15], Loss: 545.8678, policy_loss: 0.0000
+Epoch [49/50], Batch [9/15], Loss: 659.0827, policy_loss: 0.0000
+Epoch [49/50], Batch [10/15], Loss: 559.7298, policy_loss: 0.0000
+Epoch [49/50], Batch [11/15], Loss: 533.1977, policy_loss: 0.0000
+Epoch [49/50], Batch [12/15], Loss: 497.0396, policy_loss: 0.0000
+Epoch [49/50], Batch [13/15], Loss: 540.2393, policy_loss: 0.0000
+Epoch [49/50], Batch [14/15], Loss: 554.8336, policy_loss: 0.0000
+Epoch [49/50], Batch [15/15], Loss: 568.1744, policy_loss: 0.0000
+Learning rate after epoch 49: 0.000030
+Epoch [50/50], Batch [1/15], Loss: 500.5717, policy_loss: 0.0000
+Epoch [50/50], Batch [2/15], Loss: 548.0212, policy_loss: 0.0000
+Epoch [50/50], Batch [3/15], Loss: 492.6135, policy_loss: 0.0000
+Epoch [50/50], Batch [4/15], Loss: 565.8894, policy_loss: 0.0000
+Epoch [50/50], Batch [5/15], Loss: 580.6580, policy_loss: 0.0000
+Epoch [50/50], Batch [6/15], Loss: 547.4659, policy_loss: 0.0000
+Epoch [50/50], Batch [7/15], Loss: 553.6708, policy_loss: 0.0000
+Epoch [50/50], Batch [8/15], Loss: 546.0682, policy_loss: 0.0000
+Epoch [50/50], Batch [9/15], Loss: 556.2371, policy_loss: 0.0000
+Epoch [50/50], Batch [10/15], Loss: 554.1180, policy_loss: 0.0000
+Epoch [50/50], Batch [11/15], Loss: 549.8768, policy_loss: 0.0000
+Epoch [50/50], Batch [12/15], Loss: 529.6205, policy_loss: 0.0000
+Epoch [50/50], Batch [13/15], Loss: 547.5623, policy_loss: 0.0000
+Epoch [50/50], Batch [14/15], Loss: 535.9440, policy_loss: 0.0000
+Epoch [50/50], Batch [15/15], Loss: 576.7910, policy_loss: 0.0000
+Learning rate after epoch 50: 0.000010

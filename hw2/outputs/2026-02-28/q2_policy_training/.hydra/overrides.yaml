@@ -1,0 +1,5 @@
+- model_type=simple
+- planner.type=policy
+- planner.horizon=10
+- +training.num_epochs=50
+- +exp_name=q2_policy_training
