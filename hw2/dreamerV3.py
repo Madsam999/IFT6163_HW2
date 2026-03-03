@@ -313,7 +313,6 @@ class DreamerV3(GRPBase):
             'posts_logits': posts_logits,
             'priors_logits': priors_logits
         }
-        pass
 
     # [Imagine method remains mostly the same, ensuring valid input shapes for heads]
     def preprocess_state(self, image):
@@ -326,65 +325,59 @@ class DreamerV3(GRPBase):
         return img
     
     def compute_loss(self, output, images, rewards, dones, device):
-        """
-        Compute the total loss for DreamerV3 model training.
-        
-        Args:
-            output: Dictionary containing model outputs (reconstructions, rewards, continues, priors_logits, posts_logits)
-            images: Ground truth images tensor
-            rewards: Ground truth rewards tensor
-            dones: Ground truth done flags tensor
-            device: Device to perform computations on
-            pred_coeff: Coefficient for prediction losses (reconstruction + reward + continue)
-            dyn_coeff: Coefficient for dynamics loss
-            rep_coeff: Coefficient for representation loss
-        
-        Returns:
-            Dictionary containing:
-                - total_loss: Combined weighted loss
-                - recon_loss: Reconstruction loss
-                - reward_loss: Reward prediction loss
-                - continue_loss: Continue prediction loss
-                - dyn_loss: Dynamics loss (KL divergence)
-                - rep_loss: Representation loss (KL divergence)
-        """
-        # TODO: Part 3.2 - Implement DreamerV3 loss computation
+        # 1. Align time steps
         T_out = output['rewards'].shape[1]
         images = images[:, :T_out]
         rewards = rewards[:, :T_out]
         dones = dones[:, :T_out]
-        # -------------------------------------------------------------------
 
-        # TODO: Part 3.2 - Implement DreamerV3 loss computation
-        pred_coeff = self.cfg.loss_coeffs.pred_coeff if self.cfg else 1.0
-        dyn_coeff = self.cfg.loss_coeffs.dyn_coeff if self.cfg else 0.5
-        rep_coeff = self.cfg.loss_coeffs.rep_coeff if self.cfg else 0.1
-        
-        recon_loss = F.mse_loss(output['reconstructions'], images)
-        
-        reward_loss = F.mse_loss(output['rewards'].squeeze(-1), rewards)
-        
+        # 2. Symlog Regression (Crucial for DreamerV3 stability)
+        # We apply symlog to the targets to squash the scale of MSE
+        recon_loss = F.mse_loss(output['reconstructions'], symlog(images))
+        reward_loss = F.mse_loss(output['rewards'].squeeze(-1), symlog(rewards))
+    
         continues_target = (1.0 - dones.float())
         continue_loss = F.binary_cross_entropy_with_logits(output['continues'].squeeze(-1), continues_target)
-        
+
+        # 3. Proper Distribution Handling
         B, T, _ = output['posts_logits'].shape
         post_logits = output['posts_logits'].view(B, T, self.stoch_dim, self.discrete_dim)
         prior_logits = output['priors_logits'].view(B, T, self.stoch_dim, self.discrete_dim)
-        
-        post_dist = OneHotCategorical(logits=post_logits)
-        prior_dist = OneHotCategorical(logits=prior_logits)
-        
-        dyn_loss = kl_divergence(OneHotCategorical(logits=post_logits.detach()), prior_dist).mean()
-        
-        rep_loss = kl_divergence(post_dist, OneHotCategorical(logits=prior_logits.detach())).mean()
-        
-        dyn_loss = torch.max(dyn_loss, torch.tensor(1.0, device=device))
-        rep_loss = torch.max(rep_loss, torch.tensor(1.0, device=device))
+
+        # Create the standard distributions for the main KL calculation
+        post_dist = Independent(OneHotCategorical(logits=post_logits), 1)
+        prior_dist = Independent(OneHotCategorical(logits=prior_logits), 1)
+
+        # 4. KL Balancing (The Detach Fix)
+        # To detach a distribution, you must create a NEW distribution 
+        # using detached logits.
+
+        # For dyn_loss: Prior follows a fixed Posterior
+        post_dist_detached = Independent(OneHotCategorical(logits=post_logits.detach()), 1)
+        dyn_loss = kl_divergence(post_dist_detached, prior_dist).mean()
+
+        # For rep_loss: Posterior stays near a fixed Prior
+        prior_dist_detached = Independent(OneHotCategorical(logits=prior_logits.detach()), 1)
+        rep_loss = kl_divergence(post_dist, prior_dist_detached).mean()
+
+        # 5. Free Nats / Clipping
+        # Instead of a hard floor at 1.0 (which kills gradients), we use a small free_nats 
+        # value or simply let the KL optimize naturally. DreamerV3 typically uses 1.0 
+        # as a "free nats" threshold for the raw KL before averaging.
+        free_nats = torch.tensor(1.0, device=device)
+        dyn_loss = torch.max(dyn_loss, free_nats)
+        rep_loss = torch.max(rep_loss, free_nats)
+
+        # 6. Final Weighted Loss
+        # Standard V3 coefficients: pred=1.0, dyn=0.5, rep=0.1
+        pred_coeff = self.cfg.loss_coeffs.pred_coeff if self.cfg else 1.0
+        dyn_coeff = self.cfg.loss_coeffs.dyn_coeff if self.cfg else 0.5
+        rep_coeff = self.cfg.loss_coeffs.rep_coeff if self.cfg else 0.1
 
         total_loss = (pred_coeff * (recon_loss + reward_loss + continue_loss)) + \
-                     (dyn_coeff * dyn_loss) + \
-                     (rep_coeff * rep_loss)
-                     
+                 (dyn_coeff * dyn_loss) + \
+                 (rep_coeff * rep_loss)
+                 
         return {
             'loss': total_loss,
             'recon_loss': recon_loss.item(),

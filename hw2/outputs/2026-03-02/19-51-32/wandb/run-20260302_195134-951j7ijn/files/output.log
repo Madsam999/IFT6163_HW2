@@ -1,0 +1,13 @@
+[info] Using model type: dreamer
+False  dreamerV3.py
+False  dreamerV3.py
+Error executing job with overrides: ['model_type=dreamer', 'planner.type=cem', 'planner.horizon=10', 'planner.num_samples=100', 'planner.num_elites=10', 'max_iters=50', '++experiment.name=q3_dreamer']
+Traceback (most recent call last):
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 411, in my_main
+    loss_dict = model_wrapper.compute_loss(output, images, rewards, dones, poses, actions)
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamer_model_trainer.py", line 91, in compute_loss
+    return self.model.compute_loss(
+  File "/project/60004/samuel/IFT6163_HW2/hw2/dreamerV3.py", line 359, in compute_loss
+    dyn_loss = kl_divergence(post_dist.detach(), prior_dist).mean()
+AttributeError: 'Independent' object has no attribute 'detach'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
